@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Вариант B — лента рынков + таб «События»</title>
+<style>
+:root{--bg:#0e1116;--card:#161b23;--line:#232b36;--txt:#e8edf4;--mut:#8b98a9;--acc:#4f8ff7;--ok:#3fb96f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:420px;margin:0 auto;padding-bottom:20px}
+.var{background:#1b2432;color:#9fb6d8;font-size:.8em;padding:6px 14px;text-align:center}
+header{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+header .logo{width:28px;height:28px;border-radius:7px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+header b{font-size:1.1em}
+header .net{margin-left:auto;color:var(--mut);font-size:.8em}
+.tabs{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tab{padding:7px 14px;border-radius:18px;border:1px solid var(--line);color:var(--mut);font-size:.92em}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+.sorts{display:flex;gap:6px;padding:10px 14px}
+.chip{padding:5px 12px;border-radius:14px;border:1px solid var(--line);color:var(--mut);font-size:.85em}
+.chip.on{color:var(--txt);border-color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 14px;padding:12px 14px}
+.ev{color:var(--mut);font-size:.82em;margin-bottom:3px}
+.ttl{font-weight:700;font-size:1.02em}
+.meta{display:flex;justify-content:space-between;color:var(--mut);font-size:.8em;margin-top:8px}
+.bar{height:6px;border-radius:3px;background:#2a3442;margin-top:9px;position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--ok);width:58%}
+.pct{display:flex;justify-content:space-between;color:var(--mut);font-size:.78em;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="var">Вариант B: главная = лента РЫНКОВ (как сейчас), «События» отдельным табом. Тап по карточке — страница рынка</div>
+<header><div class="logo">F</div><b>Forecaster</b><span class="net">тестнет · @bettor</span></header>
+<div class="tabs"><span class="tab on">Лента</span><span class="tab">События</span><span class="tab">Моя активность</span></div>
+<div class="sorts"><span class="chip on">Новые</span><span class="chip">По объёму</span><span class="chip">Скоро закрытие</span></div>
+
+<div class="card">
+  <div class="ev">Dota 2 · The International · NaVi — Team Spirit</div>
+  <div class="ttl">Кто выиграет матч?</div>
+  <div class="bar"><i></i></div>
+  <div class="pct"><span>NaVi 58%</span><span>Spirit 42%</span></div>
+  <div class="meta"><span>ставки до 21:00</span><span>48.2k Ƶ</span></div>
+</div>
+
+<div class="card">
+  <div class="ev">Dota 2 · The International · NaVi — Team Spirit</div>
+  <div class="ttl">Тотал карт больше 2.5?</div>
+  <div class="bar"><i style="width:36%"></i></div>
+  <div class="pct"><span>Да 36%</span><span>Нет 64%</span></div>
+  <div class="meta"><span>ставки до 21:00</span><span>6.1k Ƶ</span></div>
+</div>
+
+<div class="card">
+  <div class="ev">CS2 · BLAST Premier · FaZe — Vitality</div>
+  <div class="ttl">Кто выиграет матч?</div>
+  <div class="bar"><i style="width:47%"></i></div>
+  <div class="pct"><span>FaZe 47%</span><span>Vitality 53%</span></div>
+  <div class="meta"><span>ставки до завтра 18:00</span><span>12.5k Ƶ</span></div>
+</div>
+
+<div class="card">
+  <div class="ev">Крипто</div>
+  <div class="ttl">BTC выше $150k к концу года?</div>
+  <div class="bar"><i style="width:31%"></i></div>
+  <div class="pct"><span>Да 31%</span><span>Нет 69%</span></div>
+  <div class="meta"><span>ставки до 31.12</span><span>96.0k Ƶ</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Вариант A — событийная главная</title>
+<style>
+:root{--bg:#0e1116;--card:#161b23;--line:#232b36;--txt:#e8edf4;--mut:#8b98a9;--acc:#4f8ff7;--ok:#3fb96f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:420px;margin:0 auto;padding-bottom:90px}
+.var{background:#1b2432;color:#9fb6d8;font-size:.8em;padding:6px 14px;text-align:center}
+header{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+header .logo{width:28px;height:28px;border-radius:7px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+header b{font-size:1.1em}
+header .net{margin-left:auto;color:var(--mut);font-size:.8em}
+.tabs{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tab{padding:7px 14px;border-radius:18px;border:1px solid var(--line);color:var(--mut);font-size:.92em}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+.chips{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;white-space:nowrap}
+.chip{padding:5px 12px;border-radius:14px;border:1px solid var(--line);color:var(--mut);font-size:.85em}
+.chip.on{color:var(--txt);border-color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 14px;padding:12px 14px}
+.meta{color:var(--mut);font-size:.8em;display:flex;justify-content:space-between}
+.meta .vol{color:var(--mut)}
+.ttl{font-weight:700;margin:6px 0 10px;font-size:1.05em}
+.outs{display:flex;gap:8px}
+.out{flex:1;text-align:center;padding:10px 6px;border:1px solid var(--line);border-radius:10px}
+.out small{display:block;color:var(--mut);font-size:.8em;margin-bottom:2px}
+.out b{font-size:1.05em}
+.out.sel{border-color:var(--ok);background:rgba(63,185,111,.12)}
+.out.sel b{color:var(--ok)}
+.more{display:block;text-align:center;color:var(--acc);font-size:.88em;margin-top:10px}
+.fab{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:392px;
+  background:var(--acc);color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:700;
+  box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.fab small{font-weight:400;opacity:.85}
+</style>
+</head>
+<body>
+<div class="var">Вариант A: главная = СОБЫТИЯ (спорт-бук). Тап по исходу — сразу в купон</div>
+<header><div class="logo">F</div><b>Forecaster</b><span class="net">тестнет · @bettor</span></header>
+<div class="tabs"><span class="tab on">События</span><span class="tab">Рынки</span><span class="tab">Моя активность</span></div>
+<div class="chips"><span class="chip on">Все</span><span class="chip">Dota 2</span><span class="chip">CS2</span><span class="chip">Футбол</span><span class="chip">Политика</span><span class="chip">Крипто</span></div>
+
+<div class="card">
+  <div class="meta"><span>Dota 2 · The International</span><span>сегодня 21:00 · 48.2k Ƶ</span></div>
+  <div class="ttl">NaVi — Team Spirit</div>
+  <div class="outs">
+    <div class="out sel"><small>П1</small><b>NaVi ×2.4</b></div>
+    <div class="out"><small>П2</small><b>Spirit ×1.7</b></div>
+  </div>
+  <span class="more">+12 линий: карты, тоталы, Рошан →</span>
+</div>
+
+<div class="card">
+  <div class="meta"><span>CS2 · BLAST Premier</span><span>завтра 18:00 · 12.5k Ƶ</span></div>
+  <div class="ttl">FaZe — Vitality</div>
+  <div class="outs">
+    <div class="out"><small>П1</small><b>FaZe ×2.1</b></div>
+    <div class="out sel"><small>П2</small><b>Vitality ×1.9</b></div>
+  </div>
+  <span class="more">+8 линий →</span>
+</div>
+
+<div class="card">
+  <div class="meta"><span>Крипто · декабрь</span><span>до 31.12 · 96.0k Ƶ</span></div>
+  <div class="ttl">BTC выше $150k к концу года?</div>
+  <div class="outs">
+    <div class="out"><small>Да</small><b>×3.2</b></div>
+    <div class="out"><small>Нет</small><b>×1.4</b></div>
+  </div>
+</div>
+
+<div class="fab">Купон · 2 исхода <small>· мин. выплата от 8.2 Ƶ на 10 Ƶ</small></div>
+</body>
+</html>
