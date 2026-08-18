@@ -42,7 +42,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--mut);fon
 .lang a{color:var(--mut);margin-left:10px;cursor:pointer}
 .lang a.on{color:var(--txt);font-weight:600}
 .back{color:var(--mut);font-size:.9em}
-[data-en]{display:none}
+html:not(.en) [data-en]{display:none}
 html.en [data-ru]{display:none}
 html.en [data-en]{display:block}
 html.en span[data-en],html.en a[data-en],html.en b[data-en],html.en code[data-en]{display:inline}
