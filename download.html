@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forecaster — скачать</title>
+<meta name="description" content="Скачать Forecaster и кошелёк VIZ: веб-версия (PWA), приложения для Windows, macOS и Linux, собственная нода VIZ.">
+<link rel="icon" href="logo.png">
+<style>
+:root{
+  --bg:#0e1116; --card:#161b23; --line:#232b36; --txt:#e8edf4; --mut:#8b98a9;
+  --acc:#4f8ff7; --acc2:#3576d9; --ok:#3fb96f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px}
+h1{font-size:1.8em;margin:10px 0 8px}
+.tag{color:var(--mut);font-size:1.05em}
+section{padding:26px 0;border-top:1px solid var(--line)}
+h2{font-size:1.3em;margin-bottom:14px}
+p{margin-bottom:10px}
+p.mut{color:var(--mut)}
+.note{color:var(--mut);font-size:.85em}
+ul{margin:0 0 10px 22px}
+li{margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card b{display:block;margin-bottom:6px}
+.card p{color:var(--mut);font-size:.95em;margin-bottom:10px}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;border:1px solid var(--line)}
+.btn.main{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn.main:hover{background:var(--acc2);text-decoration:none}
+.btn.ghost{color:var(--txt)}
+.btn.ghost:hover{border-color:var(--acc);text-decoration:none}
+.dl a{display:block;margin-bottom:8px;padding-left:14px;padding-right:14px;overflow-wrap:anywhere}
+.dl a:last-child{margin-bottom:0}
+.dl .sz{color:var(--mut);font-weight:400;font-size:.85em}
+.dl .btn.main .sz{color:rgba(255,255,255,.78)}
+.grid.dlgrid{grid-template-columns:repeat(auto-fit,minmax(186px,1fr))}
+pre{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  overflow-x:auto;font-size:.85em;line-height:1.5;margin-bottom:14px}
+code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:.9em}
+pre code{background:none;border:0;padding:0}
+ol.steps{list-style:none;counter-reset:s;margin:0}
+ol.steps li{counter-increment:s;padding:10px 0 10px 46px;position:relative;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;
+  border-radius:50%;background:var(--card);border:1px solid var(--acc);color:var(--acc);
+  display:flex;align-items:center;justify-content:center;font-weight:700}
+footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--mut);font-size:.9em;text-align:center}
+.lang{position:absolute;top:16px;right:20px}
+.lang a{color:var(--mut);margin-left:10px;cursor:pointer}
+.lang a.on{color:var(--txt);font-weight:600}
+.back{color:var(--mut);font-size:.9em}
+html:not(.en) [data-en]{display:none}
+html.en [data-ru]{display:none}
+html.en [data-en]{display:block}
+html.en span[data-en],html.en a[data-en],html.en b[data-en],html.en code[data-en]{display:inline}
+html.en a.btn[data-en]{display:inline-block}
+html.en td[data-en],html.en th[data-en]{display:table-cell}
+html.en li[data-en]{display:list-item}
+</style>
+</head>
+<body>
+<div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
+<div class="wrap">
+
+<header>
+  <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a></p>
+  <h1 data-ru>Скачать</h1>
+  <h1 data-en>Download</h1>
+  <p class="tag" data-ru>Forecaster и кошелёк VIZ работают прямо в браузере — устанавливать ничего
+    не обязательно. Приложения нужны тем, кому важна работа офлайн, иконка в трее и подключение
+    к собственной ноде.</p>
+  <p class="tag" data-en>Forecaster and the VIZ wallet run straight in the browser — installing
+    anything is optional. The desktop apps are for those who want offline use, a tray icon and a
+    connection to their own node.</p>
+</header>
+
+<section>
+  <h2 data-ru>Forecaster — рынки предсказаний</h2>
+  <h2 data-en>Forecaster — prediction markets</h2>
+  <div class="grid dlgrid" id="dl-forecaster">
+    <div class="card">
+      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b>
+      <p data-ru>PWA: открывается по ссылке, ставится на домашний экран как приложение,
+        работает офлайн. Обновляется само.</p>
+      <p data-en>PWA: opens from a link, installs to your home screen like an app, works
+        offline. Updates itself.</p>
+      <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
+         data-ru>Открыть</a>
+      <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
+         data-en>Open</a>
+    </div>
+    <div class="card">
+      <b>Windows</b>
+      <p data-ru>Установщик .msi, 64-бит.</p>
+      <p data-en>An .msi installer, 64-bit.</p>
+      <div class="dl" data-ext="msi"></div>
+    </div>
+    <div class="card">
+      <b>macOS</b>
+      <p data-ru>Образ .dmg. Сборка под Apple Silicon (M1 и новее).</p>
+      <p data-en>A .dmg image. Built for Apple Silicon (M1 and newer).</p>
+      <div class="dl" data-ext="dmg"></div>
+    </div>
+    <div class="card">
+      <b>Linux</b>
+      <p data-ru>Пакет .deb для Debian/Ubuntu или универсальный AppImage.</p>
+      <p data-en>A .deb package for Debian/Ubuntu, or a portable AppImage.</p>
+      <div class="dl" data-ext="deb,AppImage"></div>
+    </div>
+  </div>
+  <p class="note" data-ru>Исходный код и все выпуски —
+    <a href="https://github.com/VIZ-Blockchain/Forecaster-client">на GitHub</a>.
+    Клиент — один <code>app.js</code> без сборщиков: свою копию можно поднять на любом статическом хостинге.</p>
+  <p class="note" data-en>Source code and every release live
+    <a href="https://github.com/VIZ-Blockchain/Forecaster-client">on GitHub</a>.
+    The client is a single <code>app.js</code> with no bundlers: your own copy runs on any static host.</p>
+</section>
+
+<section>
+  <h2 data-ru>Кошелёк VIZ</h2>
+  <h2 data-en>VIZ wallet</h2>
+  <p class="mut" data-ru>Аккаунты и ключи, переводы, делегирование, голосование за валидаторов,
+    DAO-заявки и разделы рынков предсказаний. Ключи хранятся только у вас, при желании — под
+    паролем и отпечатком пальца.</p>
+  <p class="mut" data-en>Accounts and keys, transfers, delegation, validator voting, DAO requests
+    and the prediction-market sections. Keys stay with you only — optionally behind a passphrase
+    and a fingerprint.</p>
+  <div class="grid dlgrid" id="dl-wallet">
+    <div class="card">
+      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b>
+      <p data-ru>Веб-версия на wallet.viz.world.</p>
+      <p data-en>The web version at wallet.viz.world.</p>
+      <a class="btn main" href="https://wallet.viz.world/" data-ru>Открыть</a>
+      <a class="btn main" href="https://wallet.viz.world/" data-en>Open</a>
+    </div>
+    <div class="card">
+      <b>Windows</b>
+      <p data-ru>Установщик .msi, 64-бит.</p>
+      <p data-en>An .msi installer, 64-bit.</p>
+      <div class="dl" data-ext="msi"></div>
+    </div>
+    <div class="card">
+      <b>macOS</b>
+      <p data-ru>Образ .dmg. Сборка под Apple Silicon (M1 и новее).</p>
+      <p data-en>A .dmg image. Built for Apple Silicon (M1 and newer).</p>
+      <div class="dl" data-ext="dmg"></div>
+    </div>
+    <div class="card">
+      <b>Linux</b>
+      <p data-ru>Пакет .deb для Debian/Ubuntu или универсальный AppImage.</p>
+      <p data-en>A .deb package for Debian/Ubuntu, or a portable AppImage.</p>
+      <div class="dl" data-ext="deb,AppImage"></div>
+    </div>
+  </div>
+  <p class="note" data-ru>Исходный код —
+    <a href="https://github.com/VIZ-Blockchain/WebVIZWallet">VIZ-Blockchain/WebVIZWallet</a>.</p>
+  <p class="note" data-en>Source code —
+    <a href="https://github.com/VIZ-Blockchain/WebVIZWallet">VIZ-Blockchain/WebVIZWallet</a>.</p>
+</section>
+
+<section>
+  <h2 data-ru>Предупреждения системы при первом запуске</h2>
+  <h2 data-en>OS warnings on first launch</h2>
+  <p data-ru>Установщики не подписаны платным сертификатом разработчика — это осознанный выбор:
+    сертификат привязывает выпуск софта к юрлицу, которое можно принудить отозвать подпись.
+    Поэтому система один раз спросит подтверждение:</p>
+  <p data-en>The installers are not signed with a paid developer certificate — a deliberate
+    choice: a certificate ties software releases to a legal entity that can be forced to revoke
+    it. So the OS will ask for confirmation once:</p>
+  <ul>
+    <li data-ru><b>Windows:</b> SmartScreen покажет «Система Windows защитила ваш компьютер» —
+      «Подробнее» → «Выполнить в любом случае».</li>
+    <li data-en><b>Windows:</b> SmartScreen shows "Windows protected your PC" —
+      "More info" → "Run anyway".</li>
+    <li data-ru><b>macOS:</b> Gatekeeper скажет, что разработчик не подтверждён — правый клик по
+      приложению → «Открыть» → «Открыть».</li>
+    <li data-en><b>macOS:</b> Gatekeeper says the developer can't be verified — right-click the
+      app → "Open" → "Open".</li>
+    <li data-ru><b>Linux:</b> AppImage перед запуском сделайте исполняемым:
+      <code>chmod +x Forecaster*.AppImage</code>.</li>
+    <li data-en><b>Linux:</b> make the AppImage executable before running:
+      <code>chmod +x Forecaster*.AppImage</code>.</li>
+  </ul>
+  <p class="note" data-ru>Проверить, что скачали именно наш файл, можно по контрольной сумме на
+    странице выпуска — приложения собираются публично, на серверах GitHub, из открытого кода.</p>
+  <p class="note" data-en>You can verify the file against the checksum on the release page — the
+    apps are built publicly on GitHub runners from open source.</p>
+</section>
+
+<section>
+  <h2 data-ru>Своя нода VIZ — полная независимость</h2>
+  <h2 data-en>Your own VIZ node — full independence</h2>
+  <p data-ru>По умолчанию приложения ходят в сеть через публичный узел. Свой узел убирает и этого
+    посредника: запросы никуда не уходят, историю ваших ставок никто не видит, а работа клиента
+    не зависит от чужого сервера.</p>
+  <p data-en>By default the apps reach the network through a public node. Running your own removes
+    that intermediary too: nothing leaves your machine, nobody sees your betting history, and the
+    client no longer depends on someone else's server.</p>
+  <ol class="steps">
+    <li data-ru>Возьмите ноду: для Windows — готовый <code>vizd.exe</code> из
+      <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/releases">выпусков viz-cpp-node</a>;
+      для Linux и macOS — образ <code>vizblockchain/vizd</code> в Docker.</li>
+    <li data-en>Get the node: for Windows a ready-made <code>vizd.exe</code> from the
+      <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/releases">viz-cpp-node releases</a>;
+      for Linux and macOS the <code>vizblockchain/vizd</code> Docker image.</li>
+    <li data-ru>Положите рядом <code>config.ini</code> (ниже) и запустите. Состояние сети
+      подтягивается снапшотом с доверенных узлов — это минуты, а не переигрывание всей истории.</li>
+    <li data-en>Put a <code>config.ini</code> (below) next to it and start. Network state is
+      pulled as a snapshot from trusted peers — minutes, not a full history replay.</li>
+    <li data-ru>В приложении откройте выбор узла и укажите <code>http://127.0.0.1:8090</code>.
+      Индикатор покажет задержку и отставание от сети.</li>
+    <li data-en>In the app open the node picker and enter <code>http://127.0.0.1:8090</code>.
+      The indicator shows latency and how far the node lags behind the network.</li>
+  </ol>
+  <pre><code>plugin = chain p2p webserver json_rpc database_api network_broadcast_api
+plugin = account_history snapshot prediction_market_api
+
+p2p-endpoint = 0.0.0.0:2001
+p2p-seed-node = seed3.viz.world:2001
+p2p-seed-node = rpc.viz.cx:2001
+
+webserver-http-endpoint = 127.0.0.1:8090
+shared-file-size = 4G
+
+sync-snapshot-from-trusted-peer = true
+trusted-snapshot-peer = seed3.viz.world:8092
+trusted-snapshot-peer = rpc.viz.cx:8092</code></pre>
+  <p class="note" data-ru><b>Важно:</b> к узлу на <code>127.0.0.1</code> подключается именно
+    <i>приложение</i>. Открытый по https сайт до вашего локального узла не достучится — браузеры
+    блокируют такие запросы (Local Network Access). Это и есть главная причина, по которой у
+    Forecaster есть десктоп-версия.</p>
+  <p class="note" data-en><b>Note:</b> it is the <i>desktop app</i> that talks to
+    <code>127.0.0.1</code>. A site served over https cannot reach your local node — browsers block
+    those requests (Local Network Access). That is the main reason Forecaster ships a desktop build.</p>
+  <p class="note" data-ru>Рынки предсказаний отдаёт плагин <code>prediction_market_api</code>:
+    узел без него ответит на обычные запросы, но списки рынков будут пустыми — приложение об этом
+    предупредит на экране выбора узла. Подробности —
+    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/getting-started.md">документация ноды</a>.</p>
+  <p class="note" data-en>Prediction markets are served by the <code>prediction_market_api</code>
+    plugin: a node without it answers ordinary calls but returns empty market lists — the app warns
+    about this on the node screen. Details in the
+    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/getting-started.md">node documentation</a>.</p>
+</section>
+
+<footer>
+  <p>
+    <a href="./" data-ru>Forecaster — лендинг</a><a href="./" data-en>Forecaster — landing</a> ·
+    <a href="creators.html" data-ru>Создателям рынков</a><a href="creators.html" data-en>For market creators</a> ·
+    <a href="https://github.com/VIZ-Blockchain/Forecaster-client">GitHub</a>
+  </p>
+</footer>
+
+</div>
+<script>
+(function(){
+  var h=document.documentElement, ru=document.getElementById('l-ru'), en=document.getElementById('l-en');
+  function set(l){ h.className=l==='en'?'en':''; ru.className=l==='en'?'':'on'; en.className=l==='en'?'on':'';
+    try{localStorage.setItem('fw_lang',l);}catch(e){} document.title=l==='en'
+      ?'Forecaster — download':'Forecaster — скачать'; }
+  ru.onclick=function(){set('ru')}; en.onclick=function(){set('en')};
+  var s=null; try{s=localStorage.getItem('fw_lang');}catch(e){}
+  set(s|| (navigator.language&&navigator.language.slice(0,2)==='ru'?'ru':'en'));
+})();
+
+// Ссылки на установщики берём из последнего релиза репозитория, а не зашиваем в страницу:
+// иначе каждый выпуск требовал бы правки лендинга. Пока релиза нет (или GitHub не ответил) —
+// в карточке остаётся ссылка на страницу выпусков, страница не ломается.
+(function(){
+  // Двуязычная надпись — теми же атрибутами, что и вся страница, иначе сгенерированный
+  // текст не переключался бы по клику RU/EN.
+  function bi(node, ru, en){
+    var r=document.createElement('span'); r.setAttribute('data-ru',''); r.textContent=ru;
+    var e=document.createElement('span'); e.setAttribute('data-en',''); e.textContent=en;
+    node.appendChild(r); node.appendChild(e); return node;
+  }
+  function fallback(box, repo){
+    var a=document.createElement('a');
+    a.className='btn ghost'; a.href='https://github.com/VIZ-Blockchain/'+repo+'/releases';
+    box.appendChild(bi(a,'Выпуски на GitHub','Releases on GitHub'));
+  }
+  function fill(repo, rootId){
+    var root=document.getElementById(rootId);
+    var boxes=root.querySelectorAll('.dl');
+    fetch('https://api.github.com/repos/VIZ-Blockchain/'+repo+'/releases/latest')
+      .then(function(r){ return r.ok?r.json():Promise.reject(r.status); })
+      .then(function(rel){
+        var assets=rel.assets||[], any=false;
+        for (var i=0;i<boxes.length;i++){
+          var box=boxes[i], exts=box.getAttribute('data-ext').split(','), found=[];
+          for (var e=0;e<exts.length;e++){
+            for (var k=0;k<assets.length;k++){
+              if (assets[k].name.toLowerCase().slice(-(exts[e].length+1))==='.'+exts[e].toLowerCase())
+                found.push(assets[k]);
+            }
+          }
+          if (!found.length){ fallback(box, repo); continue; }
+          any=true;
+          for (var f=0;f<found.length;f++){
+            var a=document.createElement('a');
+            a.className='btn '+(f?'ghost':'main');
+            a.href=found[f].browser_download_url;
+            a.appendChild(document.createTextNode(found[f].name+' '));
+            var sz=document.createElement('span');
+            sz.className='sz'; sz.textContent=Math.round(found[f].size/1048576)+' MB';
+            a.appendChild(sz);
+            box.appendChild(a);
+          }
+        }
+        if (any){
+          var n=document.createElement('p');
+          n.className='note';
+          bi(n,'Текущий выпуск: '+rel.tag_name,'Current release: '+rel.tag_name);
+          root.parentNode.insertBefore(n, root.nextSibling);
+        }
+      })
+      .catch(function(){
+        for (var i=0;i<boxes.length;i++) fallback(boxes[i], repo);
+      });
+  }
+  fill('Forecaster-client','dl-forecaster');
+  fill('WebVIZWallet','dl-wallet');
+})();
+</script>
+</body>
+</html>
