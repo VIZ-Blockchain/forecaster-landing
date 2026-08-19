@@ -116,9 +116,10 @@ li{margin-bottom:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;
   margin-bottom:1em}
 .grid.dlgrid{grid-template-columns:repeat(auto-fit,minmax(186px,1fr))}
-/* Подпись сразу под сеткой карточек (напр. «Текущий выпуск: …», её вставляет app.js) —
-   по центру: прижатая к левому краю она читается как продолжение последней карточки. */
-.grid + .note{text-align:center}
+/* Подпись сразу под сеткой карточек (напр. «Текущий выпуск: …», её вставляет app.js) и под
+   таблицей сравнения — по центру: прижатая к левому краю она читается как продолжение
+   последней карточки / последней строки. */
+.grid + .note,.tbl + .note{text-align:center}
 
 /* Карточка: подсветка идёт за курсором. Координаты кладёт app.js в --mx/--my,
    сама подсветка — отдельный слой, чтобы не перерисовывать фон карточки. */
@@ -160,13 +161,22 @@ ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:32
   border-radius:50%;background:var(--acc-soft);border:1px solid rgba(47,111,228,.3);color:var(--acc2);
   display:flex;align-items:center;justify-content:center;font-weight:700}
 
-.tbl{overflow-x:auto}
+/* Отступ после таблицы такой же, как после сетки карточек (1em) — подпись под ней не должна
+   липнуть к следующей секции. */
+.tbl{overflow-x:auto;margin-bottom:1em}
 table{border-collapse:collapse;width:100%;font-size:.95em}
 th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}
 th{background:var(--bg-soft);font-weight:600}
 /* Таблица сравнения. Считаем позиции по ВСЕМ ячейкам, а не по видимым: у каждой логической
    колонки две ячейки (data-ru + data-en), одна из них всегда display:none, но nth-child
    их всё равно нумерует. Отсюда: 1-2 — вопрос, 3-4 — Forecaster, 5-6 — Polymarket, 7-8 — Kalshi. */
+/* Колонки одинаковой ширины (решение владельца): при авто-раскладке колонка Forecaster
+   растягивалась под самый длинный текст и таблица выглядела перекошенной. table-layout:fixed
+   берёт ширины из ПЕРВОЙ строки — там ровно 4 языконезависимых th, а скрытые языковые ячейки
+   строк (display:none) в раскладке не участвуют, поэтому 25% на th дают 4 равные колонки.
+   min-width оставляет таблице горизонтальный скролл на узких экранах вместо сплющивания. */
+.cmp{table-layout:fixed;min-width:560px}
+.cmp th{width:25%}
 .cmp td:nth-child(1),.cmp td:nth-child(2){font-weight:600;color:var(--txt)}
 /* Forecaster — белым, чтобы наша колонка выделялась на общем голубоватом фоне страницы. */
 .cmp th:nth-child(2),.cmp td:nth-child(3),.cmp td:nth-child(4){background:var(--card)}
