@@ -131,7 +131,10 @@
             var a=document.createElement('a');
             a.className='btn '+(f?'ghost':'main');
             a.href=found[f].browser_download_url;
-            a.appendChild(document.createTextNode(found[f].name+' '));
+            // На кнопке — расширение и вес: имя файла ничего не добавляет (платформа уже
+            // написана в заголовке карточки), а длинные имена ломают ряд кнопок.
+            var nm=found[f].name, dot=nm.lastIndexOf('.');
+            a.appendChild(document.createTextNode((dot>0?nm.slice(dot):nm)+' '));
             var sz=document.createElement('span');
             sz.className='sz'; sz.textContent=Math.round(found[f].size/1048576)+' MB';
             a.appendChild(sz);

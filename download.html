@@ -172,20 +172,37 @@ plugin = account_history snapshot
 p2p-endpoint = 0.0.0.0:2001
 p2p-seed-node = 175.110.112.214:2001
 p2p-seed-node = 178.156.251.126:2001
+p2p-seed-node = 62.109.17.82:2001
 
 webserver-http-endpoint = 127.0.0.1:8090
 shared-file-size = 4G
 
 sync-snapshot-from-trusted-peer = true
 trusted-snapshot-peer = 175.110.112.214:8092
-trusted-snapshot-peer = 178.156.251.126:8092</code></pre>
+trusted-snapshot-peer = 178.156.251.126:8092
+enable-stalled-sync-detection = true
+
+dlt-block-log-max-blocks = 201600
+history-count-blocks = 201600</code></pre>
+  <p class="note" data-ru>Две последние строки держат на диске примерно неделю блоков и истории
+    операций (201600 блоков по 3 секунды) — этого хватает приложению, а хранилище не растёт
+    бесконечно. <code>enable-stalled-sync-detection</code> включает самолечение: если синхронизация
+    встанет, узел сам перекачает снапшот у доверенного соседа.</p>
+  <p class="note" data-en>The last two lines keep about a week of blocks and operation history on
+    disk (201600 blocks at 3 seconds each) — enough for the app, while storage stops growing without
+    bound. <code>enable-stalled-sync-detection</code> turns on self-healing: if sync gets stuck, the
+    node re-fetches a snapshot from a trusted peer.</p>
   <p class="note" data-ru>Узлы в примере заданы IP-адресами намеренно: текущая публичная сборка
     ноды не резолвит доменные имена в этих двух настройках и молча остаётся без соседей
-    (исправлено в ветке разработки). Актуальный список публичных узлов — в
+    (исправлено в ветке разработки). Список короткий, потому что в нём только узлы, которые
+    на момент публикации реально принимают входящие подключения (проверено); остальных соседей
+    узел находит сам, обмениваясь адресами с этими тремя. Актуальный список публичных узлов — в
     <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/configuration.md">документации</a>.</p>
   <p class="note" data-en>The example uses IP addresses on purpose: the current public node build
     does not resolve host names in these two settings and silently ends up with no peers (fixed in
-    the development branch). An up-to-date list of public nodes is in the
+    the development branch). The list is short because it only contains nodes that actually accept
+    incoming connections as of publication (verified); your node discovers the rest by exchanging
+    addresses with these three. An up-to-date list of public nodes is in the
     <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/configuration.md">documentation</a>.</p>
   <p class="note" data-ru><b>Важно:</b> к узлу на <code>127.0.0.1</code> подключается именно
     <i>приложение</i>. Открытый по https сайт до вашего локального узла не достучится — браузеры

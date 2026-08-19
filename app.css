@@ -137,6 +137,13 @@ li{margin-bottom:6px}
 .card p{color:var(--mut);font-size:.95em;margin-bottom:12px}
 .card p:last-of-type{margin-bottom:14px}
 .card>a.btn{margin-top:auto;text-align:center}
+/* Списки ссылок в карточках раздела «Почитать»: маркер — тонкая точка акцентом, чтобы
+   ряд ссылок читался как список, а не как сплошной текст. */
+ul.links{list-style:none;margin:0;font-size:.95em}
+ul.links li{position:relative;padding:4px 0 4px 16px}
+ul.links li::before{content:"";position:absolute;left:2px;top:13px;width:5px;height:5px;
+  border-radius:50%;background:var(--acc);opacity:.55}
+ul.links a{color:var(--acc2)}
 
 pre{background:#0f1b2e;color:#dce6f7;border:1px solid #1b2b45;border-radius:var(--radius);
   padding:16px 18px;overflow-x:auto;font-size:.85em;line-height:1.6;margin-bottom:14px}

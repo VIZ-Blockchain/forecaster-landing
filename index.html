@@ -69,6 +69,20 @@
       <p data-en>A single app.js, no bundlers. Download it from GitHub and run your own copy —
         the client works with any VIZ node.</p>
     </div>
+    <div class="card">
+      <b data-ru>Ставки без комиссии сети</b><b data-en>No network fees</b>
+      <p data-ru>В VIZ нет газа: за отправку ставки не списывают ни копейки. Ограничение —
+        не деньги, а личная энергия аккаунта, которая восстанавливается сама.</p>
+      <p data-en>VIZ has no gas: placing a bet costs nothing. What limits you is your account's
+        own energy, which regenerates by itself — not a fee.</p>
+    </div>
+    <div class="card">
+      <b data-ru>Купон из нескольких ставок</b><b data-en>Multi-bet coupon</b>
+      <p data-ru>Соберите несколько исходов и отправьте их одной транзакцией. Она атомарна:
+        если хоть одна ставка не проходит, не проходит весь купон — половины не бывает.</p>
+      <p data-en>Collect several outcomes and send them in a single transaction. It is atomic:
+        if one bet is invalid, the whole coupon is rejected — never half-placed.</p>
+    </div>
   </div>
 </section>
 
@@ -203,11 +217,27 @@
         Your strategy can't be copied or front-run.</p>
     </div>
     <div class="card">
-      <b data-ru>Минимальная выплата</b><b data-en>Minimum payout</b>
-      <p data-ru>Вместо «плавающего коэффициента», в котором легко обмануться, форма
-        ставки показывает гарантированный минимум выплаты с учётом проскальзывания.</p>
-      <p data-en>Instead of a "floating multiplier" that's easy to misread, the bet form
-        shows your guaranteed minimum payout with slippage accounted for.</p>
+      <b data-ru>Цена не убежит</b><b data-en>Your price can't run away</b>
+      <p data-ru>Ваша доля в пуле зависит от того, кто поставил рядом с вами. Поэтому в форме
+        есть строка «минимум долей»: если к моменту записи в блок доля окажется меньше
+        указанной, ставка просто не исполнится и деньги останутся у вас.</p>
+      <p data-en>Your share of the pool depends on who bets alongside you. That is why the form
+        has a "minimum shares" field: if by the time the bet lands your share would be smaller
+        than that, the bet simply doesn't execute and your money stays with you.</p>
+    </div>
+    <div class="card">
+      <b data-ru>Штраф за ставку в последний момент</b><b data-en>Late-bet penalty</b>
+      <p data-ru>Ставку, сделанную у самого закрытия, протокол урезает в прибыли — и отдаёт
+        разницу остальным участникам рынка. Успеть «на готовое» по чужой новости не выйдет.</p>
+      <p data-en>A bet placed right before closing has its profit cut by the protocol, and the
+        difference goes to the rest of the market. Sniping a resolved-in-advance outcome doesn't pay.</p>
+    </div>
+    <div class="card">
+      <b data-ru>Ликвидность без потерь на курсе</b><b data-en>Liquidity without curve losses</b>
+      <p data-ru>Поставщик ликвидности получает свой вклад назад по протоколу целиком, а сверху —
+        долю комиссий рынка. Здесь нет непостоянных потерь, знакомых по обменным пулам.</p>
+      <p data-en>A liquidity provider gets the full principal back by protocol rule, plus a share
+        of market fees on top. None of the impermanent loss familiar from swap pools.</p>
     </div>
     <div class="card">
       <b data-ru>Клиент, который не выключить</b><b data-en>A client you can't switch off</b>
@@ -215,6 +245,60 @@
         отключение которого останавливает сервис; свою копию может поднять каждый.</p>
       <p data-en>A backend-less PWA: static files plus any VIZ node. There is no server
         whose shutdown stops the service; anyone can host their own copy.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-ru>Почитать</h2>
+  <h2 data-en>Read more</h2>
+  <div class="grid">
+    <div class="card">
+      <b data-ru>Сеть VIZ</b><b data-en>The VIZ network</b>
+      <ul class="links" data-ru>
+        <li><a href="https://viz.world/">VIZ Ledger — сайт сети</a></li>
+        <li><a href="https://docs.viz.cx/ru/">Документация ноды и протокола</a></li>
+        <li><a href="https://about.viz.world/">База знаний и whitepaper VIZ</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain">Исходный код на GitHub</a></li>
+      </ul>
+      <ul class="links" data-en>
+        <li><a href="https://viz.world/">VIZ Ledger — network site</a></li>
+        <li><a href="https://docs.viz.cx/">Node and protocol documentation</a></li>
+        <li><a href="https://about.viz.world/">VIZ knowledge base and whitepaper</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain">Source code on GitHub</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <b data-ru>Протокол Onix (рынки)</b><b data-en>Onix protocol (markets)</b>
+      <ul class="links" data-ru>
+        <li><a href="https://ssrn.com/abstract=6978138">Whitepaper на SSRN</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/whitepaper.md">Whitepaper в репозитории</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/tree/pm/docs/prediction-markets">Спецификация и гайды по ролям</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/guides/bettor.md">Гайд для игрока</a></li>
+      </ul>
+      <ul class="links" data-en>
+        <li><a href="https://ssrn.com/abstract=6978138">Whitepaper on SSRN</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/whitepaper.md">Whitepaper in the repository</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/tree/pm/docs/prediction-markets">Specification and role guides</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/guides/bettor.md">Bettor's guide</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <b data-ru>Статьи автора сети</b><b data-en>Articles by the network's author</b>
+      <ul class="links" data-ru>
+        <li><a href="https://control.viz.world/media/@on1x/fair-dpos/">Что такое Fair DPoS</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/viz-technical-documentation/">VIZ: техническое описание</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/ru-viz-as-digital-representative-self-governing-state/">VIZ как самоуправляемое государство</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/ru-viz-economy-change/">Изменение экономики VIZ</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/ru-decentralized-free-speech/">Децентрализация свободы слова</a></li>
+      </ul>
+      <ul class="links" data-en>
+        <li><a href="https://control.viz.world/media/@on1x/en-fair-dpos/">What is Fair DPoS</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/en-viz-technical-description/">VIZ: technical description</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/en-viz-as-digital-representative-self-governing-state/">VIZ as a self-governing state</a></li>
+        <li><a href="https://control.viz.world/media/@on1x/en-viz-economy-change/">Changing the VIZ economy</a></li>
+        <li><a href="https://on1x.com/">All articles and talks by the author</a></li>
+      </ul>
     </div>
   </div>
 </section>
