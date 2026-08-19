@@ -14,8 +14,14 @@
   --acc2:#1c4fb8;
   --acc-soft:#e9f0ff;
   --ok:#1e9e5a;
-  --shadow:0 1px 2px rgba(16,36,72,.05), 0 8px 24px -12px rgba(16,36,72,.18);
-  --shadow-lift:0 2px 6px rgba(16,36,72,.07), 0 20px 40px -18px rgba(16,36,72,.28);
+  /* Тени тонированы в синий, а не чёрные: на светлом фоне чёрная тень выглядит грязной.
+     Большой отрицательный spread даёт «приподнятость», а не ореол вокруг блока. */
+  --glass-hi:rgba(255,255,255,.9);
+  --glass-lo:rgba(24,32,52,.06);
+  --shadow:inset 0 1px 0 var(--glass-hi), inset 0 -1px 0 var(--glass-lo),
+           0 18px 40px -24px rgba(22,50,94,.35);
+  --shadow-lift:inset 0 1px 0 var(--glass-hi), inset 0 -1px 0 var(--glass-lo),
+           0 30px 60px -28px rgba(22,50,94,.45);
   --radius:16px;
 }
 
@@ -48,6 +54,13 @@ body::after{
           mask-image:linear-gradient(#000, transparent 62%);
 }
 
+/* Зерно: инлайновый SVG-шум, без единого запроса. На светлом фоне режим multiply,
+   иначе шум просто не виден. stitchTiles убирает швы на стыках тайлов. */
+body > .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  opacity:.028;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px}
+
 a{color:var(--acc);text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -63,7 +76,10 @@ header.center .tag{max-width:580px;margin:0 auto}
 .back{color:var(--mut);font-size:.9em}
 
 /* Заголовок секции с маленькой синей «шапочкой» — ритм без лишних линий. */
-section{padding:38px 0;border-top:1px solid var(--line)}
+section{padding:clamp(34px,5vw,64px) 0;position:relative;border-top:0}
+section::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--line) 18%,rgba(47,111,228,.45) 50%,
+             var(--line) 82%,transparent)}
 h2{font-size:1.35em;margin-bottom:16px;letter-spacing:-.01em}
 .eyebrow{display:inline-block;font-size:.75em;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:var(--acc);background:var(--acc-soft);
@@ -84,6 +100,15 @@ li{margin-bottom:6px}
 .btn.main{background:linear-gradient(180deg, var(--acc), var(--acc2));color:#fff;border-color:transparent;
   box-shadow:0 1px 2px rgba(28,79,184,.3), 0 12px 24px -14px rgba(28,79,184,.9)}
 .btn.main:hover{box-shadow:0 2px 6px rgba(28,79,184,.32), 0 18px 30px -16px rgba(28,79,184,.95)}
+/* Блик пробегает по кнопке за треть цикла, остальное время — пауза: редкая искра,
+   а не назойливое мелькание. */
+.btn.main{position:relative;overflow:hidden;isolation:isolate}
+.cta .btn.main::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-repeat:no-repeat;background-size:250% 100%;
+  background-image:linear-gradient(100deg,transparent 38%,rgba(255,255,255,.28) 44%,
+    rgba(255,255,255,.75) 48.5%,rgba(255,255,255,.28) 53%,transparent 59%);
+  animation:sheen 5.2s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes sheen{0%{background-position:180% 0}35%,100%{background-position:-60% 0}}
 .btn.ghost{color:var(--txt)}
 .btn.ghost:hover{border-color:var(--acc)}
 .btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
@@ -102,7 +127,11 @@ li{margin-bottom:6px}
   background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%), rgba(47,111,228,.14), transparent 70%);
   opacity:0;transition:opacity .25s ease;pointer-events:none;
 }
+.card::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(47,111,228,.35),transparent);
+  opacity:0;transition:opacity .25s ease}
 .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:var(--line-strong)}
+.card:hover::after{opacity:1}
 .card:hover::before{opacity:1}
 .card b{display:block;margin-bottom:6px}
 .card p{color:var(--mut);font-size:.95em;margin-bottom:12px}
@@ -141,12 +170,15 @@ footer{padding:34px 0 48px;border-top:1px solid var(--line);color:var(--mut);
 .dl .btn.main .sz{color:rgba(255,255,255,.8)}
 
 /* Появление секций при прокрутке. Без JS класс не навешивается — контент виден и так. */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+.reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--d,0ms)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .btn,.card{transition:none}
-  .card::before{display:none}
+  .card::before,.card::after{display:none}
+  .cta .btn.main::after{animation:none;opacity:0}
 }
 
 html:not(.en) [data-en]{display:none}

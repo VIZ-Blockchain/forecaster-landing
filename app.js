@@ -53,7 +53,15 @@
   if (!nodes.length) return;
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  Array.prototype.forEach.call(nodes, function(n){ n.classList.add('reveal'); });
+  Array.prototype.forEach.call(nodes, function(n){
+    n.classList.add('reveal');
+    // Карточки одной сетки въезжают лесенкой, а не разом.
+    var grid=n.parentNode;
+    if (n.classList.contains('card') && grid && grid.classList.contains('grid')){
+      var idx=Array.prototype.indexOf.call(grid.children, n);
+      n.style.setProperty('--d', Math.min(idx,5)*70+'ms');
+    }
+  });
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (!e.isIntersecting) return;
