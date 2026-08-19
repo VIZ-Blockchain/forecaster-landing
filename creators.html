@@ -1,54 +1,13 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-title-en="Forecaster — for market creators">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forecaster — события и метаданные для создателей рынков</title>
 <meta name="description" content="Как Forecaster собирает рынки в карточки событий: ключи метаданных event, event_title, child; родительский рынок и дочерние линии; что индексирует нода VIZ.">
 <link rel="icon" href="logo.png">
-<style>
-:root{
-  --bg:#0e1116; --card:#161b23; --line:#232b36; --txt:#e8edf4; --mut:#8b98a9;
-  --acc:#4f8ff7; --acc2:#3576d9; --ok:#3fb96f;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-a{color:var(--acc);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header{padding:48px 0 28px}
-h1{font-size:1.8em;margin:10px 0 8px}
-.tag{color:var(--mut);font-size:1.05em}
-section{padding:26px 0;border-top:1px solid var(--line)}
-h2{font-size:1.3em;margin-bottom:14px}
-p{margin-bottom:10px}
-p.mut,li span{color:var(--mut)}
-ul{margin:0 0 10px 22px}
-li{margin-bottom:6px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
-.card b{display:block;margin-bottom:6px}
-.card p{color:var(--mut);font-size:.95em;margin-bottom:0}
-pre{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
-  overflow-x:auto;font-size:.85em;line-height:1.5;margin-bottom:14px}
-code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:.9em}
-pre code{background:none;border:0;padding:0}
-.tbl{overflow-x:auto;margin-bottom:14px}
-table.cmp{width:100%;border-collapse:collapse;font-size:.92em;min-width:560px}
-.cmp th,.cmp td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.cmp th{background:var(--card)}
-.cmp td:first-child{white-space:nowrap}
-footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--mut);font-size:.9em;text-align:center}
-.lang{position:absolute;top:16px;right:20px}
-.lang a{color:var(--mut);margin-left:10px;cursor:pointer}
-.lang a.on{color:var(--txt);font-weight:600}
-.back{color:var(--mut);font-size:.9em}
-html:not(.en) [data-en]{display:none}
-html.en [data-ru]{display:none}
-html.en [data-en]{display:block}
-html.en span[data-en],html.en a[data-en],html.en b[data-en],html.en code[data-en]{display:inline}
-html.en td[data-en],html.en th[data-en]{display:table-cell}
-html.en li[data-en]{display:list-item}
-</style>
+<link rel="stylesheet" href="app.css">
+<script>try{var l=localStorage.getItem('fw_lang')||((navigator.language||'').slice(0,2)==='ru'?'ru':'en');if(l==='en')document.documentElement.className='en';}catch(e){}</script>
 </head>
 <body>
 <div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
@@ -56,8 +15,8 @@ html.en li[data-en]{display:list-item}
 
 <header>
   <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a></p>
-  <h1 data-ru>События и метаданные: рынки, которые собираются в матчи</h1>
-  <h1 data-en>Events &amp; metadata: markets that group into matches</h1>
+  <h1 class="small" data-ru>События и метаданные: рынки, которые собираются в матчи</h1>
+  <h1 class="small" data-en>Events &amp; metadata: markets that group into matches</h1>
   <p class="tag" data-ru>Гайд для создателей рынков: как проставить метаданные, чтобы Forecaster
     показал ваши рынки одной карточкой события — с исходами, коэффициентами и «ещё N линий».</p>
   <p class="tag" data-en>A market-creator guide: set the right metadata and Forecaster renders your
@@ -165,16 +124,6 @@ html.en li[data-en]{display:list-item}
 </footer>
 
 </div>
-<script>
-(function(){
-  var h=document.documentElement, ru=document.getElementById('l-ru'), en=document.getElementById('l-en');
-  function set(l){ h.className=l==='en'?'en':''; ru.className=l==='en'?'':'on'; en.className=l==='en'?'on':'';
-    try{localStorage.setItem('fw_lang',l);}catch(e){} document.title=l==='en'
-      ?'Forecaster — events & metadata for market creators':'Forecaster — события и метаданные для создателей рынков'; }
-  ru.onclick=function(){set('ru')}; en.onclick=function(){set('en')};
-  var s=null; try{s=localStorage.getItem('fw_lang');}catch(e){}
-  set(s|| (navigator.language&&navigator.language.slice(0,2)==='ru'?'ru':'en'));
-})();
-</script>
+<script src="app.js" defer></script>
 </body>
 </html>

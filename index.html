@@ -1,67 +1,19 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-title-en="Forecaster — prediction markets on VIZ">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forecaster — рынки предсказаний на VIZ</title>
 <meta name="description" content="Forecaster — лёгкий non-custodial клиент рынков предсказаний на блокчейне VIZ. Ключи только у вас. Открытый код.">
 <link rel="icon" href="logo.png">
-<style>
-:root{
-  --bg:#0e1116; --card:#161b23; --line:#232b36; --txt:#e8edf4; --mut:#8b98a9;
-  --acc:#4f8ff7; --acc2:#3576d9; --ok:#3fb96f;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-a{color:var(--acc);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header{padding:64px 0 40px;text-align:center}
-header img{width:88px;height:88px;border-radius:20px}
-h1{font-size:2.2em;margin:16px 0 8px}
-.tag{color:var(--mut);font-size:1.15em;max-width:560px;margin:0 auto}
-.cta{margin:28px 0 8px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;border:1px solid var(--line)}
-.btn.main{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn.main:hover{background:var(--acc2);text-decoration:none}
-.btn.ghost{color:var(--txt)}
-.btn.ghost:hover{border-color:var(--acc);text-decoration:none}
-.note{color:var(--mut);font-size:.85em}
-section{padding:34px 0;border-top:1px solid var(--line)}
-h2{font-size:1.4em;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
-.card b{display:block;margin-bottom:6px}
-.card p{color:var(--mut);font-size:.95em}
-ol.steps{list-style:none;counter-reset:s}
-ol.steps li{counter-increment:s;padding:10px 0 10px 46px;position:relative}
-ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;
-  border-radius:50%;background:var(--card);border:1px solid var(--acc);color:var(--acc);
-  display:flex;align-items:center;justify-content:center;font-weight:700}
-.tbl{overflow-x:auto}
-table.cmp{width:100%;border-collapse:collapse;font-size:.92em;min-width:560px}
-.cmp th,.cmp td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.cmp th{background:var(--card)}
-.cmp td:first-child,.cmp th:first-child{color:var(--mut)}
-.cmp .y{color:var(--ok);font-weight:600}
-.cmp .n{color:#e05666}
-footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mut);font-size:.9em;text-align:center}
-.lang{position:absolute;top:16px;right:20px}
-.lang a{color:var(--mut);margin-left:10px;cursor:pointer}
-.lang a.on{color:var(--txt);font-weight:600}
-html:not(.en) [data-en]{display:none}
-html.en [data-ru]{display:none}
-html.en [data-en]{display:block}
-html.en span[data-en],html.en a[data-en],html.en b[data-en]{display:inline}
-html.en a.btn[data-en]{display:inline-block}
-html.en td[data-en],html.en th[data-en]{display:table-cell}
-</style>
+<link rel="stylesheet" href="app.css">
+<script>try{var l=localStorage.getItem('fw_lang')||((navigator.language||'').slice(0,2)==='ru'?'ru':'en');if(l==='en')document.documentElement.className='en';}catch(e){}</script>
 </head>
 <body>
 <div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
 <div class="wrap">
 
-<header>
+<header class="center">
   <img src="logo.png" alt="Forecaster">
   <h1>Forecaster</h1>
   <p class="tag" data-ru>Рынки предсказаний на блокчейне VIZ. Лёгкий клиент без посредников:
@@ -281,16 +233,6 @@ html.en td[data-en],html.en th[data-en]{display:table-cell}
 </footer>
 
 </div>
-<script>
-(function(){
-  var h=document.documentElement, ru=document.getElementById('l-ru'), en=document.getElementById('l-en');
-  function set(l){ h.className=l==='en'?'en':''; ru.className=l==='en'?'':'on'; en.className=l==='en'?'on':'';
-    try{localStorage.setItem('fw_lang',l);}catch(e){} document.title=l==='en'
-      ?'Forecaster — prediction markets on VIZ':'Forecaster — рынки предсказаний на VIZ'; }
-  ru.onclick=function(){set('ru')}; en.onclick=function(){set('en')};
-  var s=null; try{s=localStorage.getItem('fw_lang');}catch(e){}
-  set(s|| (navigator.language&&navigator.language.slice(0,2)==='ru'?'ru':'en'));
-})();
-</script>
+<script src="app.js" defer></script>
 </body>
 </html>

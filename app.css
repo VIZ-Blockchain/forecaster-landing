@@ -1,0 +1,158 @@
+/* Лендинг Forecaster — общий стиль трёх страниц.
+   Светлая тема, единственный акцент — синий из логотипа. Никаких сборщиков и зависимостей:
+   всё, что двигается, сделано на CSS-переменных и десятке строк JS в app.js. */
+
+:root{
+  --bg:#f6f8fc;
+  --bg-soft:#eef3fc;
+  --card:#fff;
+  --line:#e3eaf5;
+  --line-strong:#cfdaec;
+  --txt:#0e1b2e;
+  --mut:#5c6c84;
+  --acc:#2f6fe4;
+  --acc2:#1c4fb8;
+  --acc-soft:#e9f0ff;
+  --ok:#1e9e5a;
+  --shadow:0 1px 2px rgba(16,36,72,.05), 0 8px 24px -12px rgba(16,36,72,.18);
+  --shadow-lift:0 2px 6px rgba(16,36,72,.07), 0 20px 40px -18px rgba(16,36,72,.28);
+  --radius:16px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Мягкие световые пятна вместо плоской заливки. Фиксированы за контентом, кликов не ловят. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(680px 420px at 12% -6%, rgba(47,111,228,.16), transparent 70%),
+    radial-gradient(560px 380px at 92% 4%, rgba(47,111,228,.10), transparent 72%),
+    radial-gradient(720px 520px at 50% 108%, rgba(47,111,228,.09), transparent 70%);
+}
+/* Тонкая сетка — только сверху, уходит в прозрачность, чтобы не рябило под текстом. */
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(47,111,228,.07) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(47,111,228,.07) 1px, transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:linear-gradient(#000, transparent 62%);
+          mask-image:linear-gradient(#000, transparent 62%);
+}
+
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+header{padding:56px 0 34px}
+header.center{text-align:center;padding:72px 0 44px}
+header img{width:88px;height:88px;border-radius:22px;box-shadow:var(--shadow)}
+h1{font-size:2.1em;line-height:1.2;margin:16px 0 10px;letter-spacing:-.02em}
+h1.small{font-size:1.75em}
+.tag{color:var(--mut);font-size:1.1em}
+header.center .tag{max-width:580px;margin:0 auto}
+.back{color:var(--mut);font-size:.9em}
+
+/* Заголовок секции с маленькой синей «шапочкой» — ритм без лишних линий. */
+section{padding:38px 0;border-top:1px solid var(--line)}
+h2{font-size:1.35em;margin-bottom:16px;letter-spacing:-.01em}
+.eyebrow{display:inline-block;font-size:.75em;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--acc);background:var(--acc-soft);
+  border-radius:999px;padding:4px 12px;margin-bottom:10px}
+
+p{margin-bottom:10px}
+p.mut,li span{color:var(--mut)}
+.note{color:var(--mut);font-size:.85em}
+ul{margin:0 0 10px 22px}
+li{margin-bottom:6px}
+
+.cta{margin:30px 0 8px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:600;
+  border:1px solid var(--line-strong);background:var(--card);color:var(--txt);
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn:active{transform:translateY(0)}
+.btn.main{background:linear-gradient(180deg, var(--acc), var(--acc2));color:#fff;border-color:transparent;
+  box-shadow:0 1px 2px rgba(28,79,184,.3), 0 12px 24px -14px rgba(28,79,184,.9)}
+.btn.main:hover{box-shadow:0 2px 6px rgba(28,79,184,.32), 0 18px 30px -16px rgba(28,79,184,.95)}
+.btn.ghost{color:var(--txt)}
+.btn.ghost:hover{border-color:var(--acc)}
+.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.grid.dlgrid{grid-template-columns:repeat(auto-fit,minmax(186px,1fr))}
+
+/* Карточка: подсветка идёт за курсором. Координаты кладёт app.js в --mx/--my,
+   сама подсветка — отдельный слой, чтобы не перерисовывать фон карточки. */
+.card{position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;isolation:isolate;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%), rgba(47,111,228,.14), transparent 70%);
+  opacity:0;transition:opacity .25s ease;pointer-events:none;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:var(--line-strong)}
+.card:hover::before{opacity:1}
+.card b{display:block;margin-bottom:6px}
+.card p{color:var(--mut);font-size:.95em;margin-bottom:12px}
+.card p:last-of-type{margin-bottom:14px}
+.card>a.btn{margin-top:auto;text-align:center}
+
+pre{background:#0f1b2e;color:#dce6f7;border:1px solid #1b2b45;border-radius:var(--radius);
+  padding:16px 18px;overflow-x:auto;font-size:.85em;line-height:1.6;margin-bottom:14px}
+code{background:var(--acc-soft);color:var(--acc2);border-radius:6px;padding:1px 6px;font-size:.9em}
+pre code{background:none;color:inherit;padding:0}
+
+ol.steps{list-style:none;counter-reset:s;margin:0}
+ol.steps li{counter-increment:s;padding:10px 0 10px 48px;position:relative;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:32px;height:32px;
+  border-radius:50%;background:var(--acc-soft);border:1px solid rgba(47,111,228,.3);color:var(--acc2);
+  display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.95em}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+th{background:var(--bg-soft);font-weight:600}
+
+footer{padding:34px 0 48px;border-top:1px solid var(--line);color:var(--mut);
+  font-size:.9em;text-align:center}
+
+.lang{position:absolute;top:16px;right:20px;z-index:2}
+.lang a{color:var(--mut);margin-left:12px;cursor:pointer}
+.lang a.on{color:var(--txt);font-weight:600}
+
+/* Ссылки на установщики: имя файла + размер, кнопки прижаты к низу карточки. */
+.dl{margin-top:auto}
+.dl a{display:block;margin-bottom:8px;padding-left:14px;padding-right:14px;
+  text-align:center;overflow-wrap:anywhere}
+.dl a:last-child{margin-bottom:0}
+.dl .sz{color:var(--mut);font-weight:400;font-size:.85em}
+.dl .btn.main .sz{color:rgba(255,255,255,.8)}
+
+/* Появление секций при прокрутке. Без JS класс не навешивается — контент виден и так. */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn,.card{transition:none}
+  .card::before{display:none}
+}
+
+html:not(.en) [data-en]{display:none}
+html.en [data-ru]{display:none}
+html.en [data-en]{display:block}
+html.en span[data-en],html.en a[data-en],html.en b[data-en],html.en code[data-en]{display:inline}
+html.en a.btn[data-en]{display:inline-block}
+html.en td[data-en],html.en th[data-en]{display:table-cell}
+html.en li[data-en]{display:list-item}
