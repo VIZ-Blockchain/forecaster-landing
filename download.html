@@ -27,7 +27,8 @@ p.mut{color:var(--mut)}
 ul{margin:0 0 10px 22px}
 li{margin-bottom:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;
+  display:flex;flex-direction:column}
 .card b{display:block;margin-bottom:6px}
 .card p{color:var(--mut);font-size:.95em;margin-bottom:10px}
 .btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;border:1px solid var(--line)}
@@ -35,6 +36,8 @@ li{margin-bottom:6px}
 .btn.main:hover{background:var(--acc2);text-decoration:none}
 .btn.ghost{color:var(--txt)}
 .btn.ghost:hover{border-color:var(--acc);text-decoration:none}
+.dl{margin-top:auto}
+.card>a.btn{margin-top:auto}
 .dl a{display:block;margin-bottom:8px;padding-left:14px;padding-right:14px;overflow-wrap:anywhere}
 .dl a:last-child{margin-bottom:0}
 .dl .sz{color:var(--mut);font-weight:400;font-size:.85em}
@@ -296,9 +299,17 @@ trusted-snapshot-peer = 178.156.251.126:8092</code></pre>
   function fill(repo, rootId){
     var root=document.getElementById(rootId);
     var boxes=root.querySelectorAll('.dl');
-    fetch('https://api.github.com/repos/VIZ-Blockchain/'+repo+'/releases/latest')
+    // Берём СПИСОК выпусков, а не /releases/latest: последний отдаёт только стабильные,
+    // и предварительные сборки (pre-release) на странице бы не появились.
+    fetch('https://api.github.com/repos/VIZ-Blockchain/'+repo+'/releases?per_page=10')
       .then(function(r){ return r.ok?r.json():Promise.reject(r.status); })
-      .then(function(rel){
+      .then(function(list){
+        var rel=null;
+        for (var i=0;i<list.length && !rel;i++){
+          if (list[i].draft) continue;
+          if ((list[i].assets||[]).length) rel=list[i];
+        }
+        if (!rel) return Promise.reject('no assets');
         var assets=rel.assets||[], any=false;
         for (var i=0;i<boxes.length;i++){
           var box=boxes[i], exts=box.getAttribute('data-ext').split(','), found=[];
@@ -324,7 +335,9 @@ trusted-snapshot-peer = 178.156.251.126:8092</code></pre>
         if (any){
           var n=document.createElement('p');
           n.className='note';
-          bi(n,'Текущий выпуск: '+rel.tag_name,'Current release: '+rel.tag_name);
+          var pre=rel.prerelease?' — предварительная сборка':'';
+          var preEn=rel.prerelease?' — pre-release':'';
+          bi(n,'Текущий выпуск: '+rel.tag_name+pre,'Current release: '+rel.tag_name+preEn);
           root.parentNode.insertBefore(n, root.nextSibling);
         }
       })
