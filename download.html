@@ -197,13 +197,13 @@ history-count-blocks = 201600</code></pre>
     (исправлено в ветке разработки). Список короткий, потому что в нём только узлы, которые
     на момент публикации реально принимают входящие подключения (проверено); остальных соседей
     узел находит сам, обмениваясь адресами с этими тремя. Актуальный список публичных узлов — в
-    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/configuration.md">документации</a>.</p>
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">документации</a>.</p>
   <p class="note" data-en>The example uses IP addresses on purpose: the current public node build
     does not resolve host names in these two settings and silently ends up with no peers (fixed in
     the development branch). The list is short because it only contains nodes that actually accept
     incoming connections as of publication (verified); your node discovers the rest by exchanging
     addresses with these three. An up-to-date list of public nodes is in the
-    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/configuration.md">documentation</a>.</p>
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">documentation</a>.</p>
   <p class="note" data-ru><b>Важно:</b> к узлу на <code>127.0.0.1</code> подключается именно
     <i>приложение</i>. Открытый по https сайт до вашего локального узла не достучится — браузеры
     блокируют такие запросы (Local Network Access). Это и есть главная причина, по которой у
@@ -216,13 +216,13 @@ history-count-blocks = 201600</code></pre>
     строку <code>plugin = prediction_market_api</code> в конфиг пока НЕ нужно: узел с неизвестным
     плагином просто не запустится. Без него нода отвечает на обычные запросы, но списки рынков
     будут пустыми, и приложение честно предупредит об этом на экране выбора узла. Подробности —
-    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/getting-started.md">документация ноды</a>.</p>
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/getting-started">документация ноды</a>.</p>
   <p class="note" data-en>Prediction markets are served by a separate
     <code>prediction_market_api</code> plugin, which the current public node build does not ship
     yet — do not add <code>plugin = prediction_market_api</code> to the config for now: a node
     refuses to start on an unknown plugin. Without it the node answers ordinary calls but returns
     empty market lists, and the app says so on the node screen. Details in the
-    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/master/docs/node/getting-started.md">node documentation</a>.</p>
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/getting-started">node documentation</a>.</p>
 </section>
 
 <footer>
