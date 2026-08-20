@@ -172,7 +172,6 @@ plugin = account_history snapshot
 p2p-endpoint = 0.0.0.0:2001
 p2p-seed-node = 175.110.112.214:2001
 p2p-seed-node = 178.156.251.126:2001
-p2p-seed-node = 62.109.17.82:2001
 
 webserver-http-endpoint = 127.0.0.1:8090
 shared-file-size = 4G
@@ -196,13 +195,13 @@ history-count-blocks = 201600</code></pre>
     ноды не резолвит доменные имена в этих двух настройках и молча остаётся без соседей
     (исправлено в ветке разработки). Список короткий, потому что в нём только узлы, которые
     на момент публикации реально принимают входящие подключения (проверено); остальных соседей
-    узел находит сам, обмениваясь адресами с этими тремя. Актуальный список публичных узлов — в
+    узел находит сам, обмениваясь адресами с этими двумя. Актуальный список публичных узлов — в
     <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">документации</a>.</p>
   <p class="note" data-en>The example uses IP addresses on purpose: the current public node build
     does not resolve host names in these two settings and silently ends up with no peers (fixed in
     the development branch). The list is short because it only contains nodes that actually accept
     incoming connections as of publication (verified); your node discovers the rest by exchanging
-    addresses with these three. An up-to-date list of public nodes is in the
+    addresses with these two. An up-to-date list of public nodes is in the
     <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">documentation</a>.</p>
   <p class="note" data-ru><b>Важно:</b> к узлу на <code>127.0.0.1</code> подключается именно
     <i>приложение</i>. Открытый по https сайт до вашего локального узла не достучится — браузеры
