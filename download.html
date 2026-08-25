@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-title-en="Forecaster — download">
+<html lang="en" data-title-en="Forecaster — download" data-title-zh="Forecaster — 下载">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,56 +7,67 @@
 <meta name="description" content="Скачать Forecaster и кошелёк VIZ: веб-версия (PWA), приложения для Windows, macOS и Linux, собственная нода VIZ.">
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="app.css">
-<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l==='en')document.documentElement.className='en';}catch(e){}</script>
+<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l!=='ru')document.documentElement.setAttribute('data-lang',l);}catch(e){}</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
+<div class="lang"><a id="l-ru">RU</a><a id="l-en" class="on">EN</a><a id="l-zh">中文</a></div>
 <div class="wrap">
 
 <header>
-  <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a></p>
+  <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a><a href="./" data-zh>← Forecaster</a></p>
   <h1 class="small" data-ru>Скачать</h1>
   <h1 class="small" data-en>Download</h1>
+  <h1 class="small" data-zh>下载</h1>
   <p class="tag" data-ru>Forecaster и кошелёк VIZ работают прямо в браузере — устанавливать ничего
     не обязательно. Приложения нужны тем, кому важна работа офлайн, иконка в трее и подключение
     к собственной ноде.</p>
   <p class="tag" data-en>Forecaster and the VIZ wallet run straight in the browser — installing
     anything is optional. The desktop apps are for those who want offline use, a tray icon and a
     connection to their own node.</p>
+  <p class="tag" data-zh>Forecaster 和 VIZ 钱包直接在浏览器中运行——无需安装。
+    桌面应用适合需要离线使用、托盘图标和连接自有节点的用户。</p>
 </header>
 
 <section>
   <h2 data-ru>Forecaster — рынки предсказаний</h2>
   <h2 data-en>Forecaster — prediction markets</h2>
+  <h2 data-zh>Forecaster — 预测市场</h2>
   <div class="grid dlgrid" id="dl-forecaster">
     <div class="card">
-      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b>
+      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b><b data-zh>浏览器与手机</b>
       <p data-ru>PWA: открывается по ссылке, ставится на домашний экран как приложение,
         работает офлайн. Обновляется само.</p>
       <p data-en>PWA: opens from a link, installs to your home screen like an app, works
         offline. Updates itself.</p>
+      <p data-zh>PWA：通过链接打开，可像应用一样安装到主屏幕，
+        支持离线使用，自动更新。</p>
       <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
          data-ru>Открыть</a>
       <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
          data-en>Open</a>
+      <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
+         data-zh>打开</a>
     </div>
     <div class="card">
       <b>Windows</b>
       <p data-ru>Установщик .msi, 64-бит.</p>
       <p data-en>An .msi installer, 64-bit.</p>
+      <p data-zh>.msi 安装程序，64 位。</p>
       <div class="dl" data-ext="msi"></div>
     </div>
     <div class="card">
       <b>macOS</b>
       <p data-ru>Образ .dmg. Сборка под Apple Silicon (M1 и новее).</p>
       <p data-en>A .dmg image. Built for Apple Silicon (M1 and newer).</p>
+      <p data-zh>.dmg 镜像。为 Apple Silicon（M1 及更新机型）构建。</p>
       <div class="dl" data-ext="dmg"></div>
     </div>
     <div class="card">
       <b>Linux</b>
       <p data-ru>Пакет .deb для Debian/Ubuntu или универсальный AppImage.</p>
       <p data-en>A .deb package for Debian/Ubuntu, or a portable AppImage.</p>
+      <p data-zh>适用于 Debian/Ubuntu 的 .deb 包，或通用 AppImage。</p>
       <div class="dl" data-ext="deb,AppImage"></div>
     </div>
   </div>
@@ -66,41 +77,52 @@
   <p class="note" data-en>Source code and every release live
     <a href="https://github.com/VIZ-Blockchain/Forecaster-client">on GitHub</a>.
     The client is a single <code>app.js</code> with no bundlers: your own copy runs on any static host.</p>
+  <p class="note" data-zh>源代码和所有版本均在
+    <a href="https://github.com/VIZ-Blockchain/Forecaster-client">GitHub</a> 上。
+    客户端仅一个 <code>app.js</code>，无需构建工具：您可以在任何静态主机上运行自己的副本。</p>
 </section>
 
 <section>
   <h2 data-ru>Кошелёк VIZ</h2>
   <h2 data-en>VIZ wallet</h2>
+  <h2 data-zh>VIZ 钱包</h2>
   <p class="mut" data-ru>Аккаунты и ключи, переводы, делегирование, голосование за валидаторов,
     DAO-заявки и разделы рынков предсказаний. Ключи хранятся только у вас, при желании — под
     паролем и отпечатком пальца.</p>
   <p class="mut" data-en>Accounts and keys, transfers, delegation, validator voting, DAO requests
     and the prediction-market sections. Keys stay with you only — optionally behind a passphrase
     and a fingerprint.</p>
+  <p class="mut" data-zh>账户与密钥、转账、委托、验证人投票、DAO 申请
+    及预测市场板块。密钥仅由您保管——可选择密码和指纹保护。</p>
   <div class="grid dlgrid" id="dl-wallet">
     <div class="card">
-      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b>
+      <b data-ru>Браузер и телефон</b><b data-en>Browser &amp; phone</b><b data-zh>浏览器与手机</b>
       <p data-ru>Веб-версия на wallet.viz.world.</p>
       <p data-en>The web version at wallet.viz.world.</p>
+      <p data-zh>网页版：wallet.viz.world。</p>
       <a class="btn main" href="https://wallet.viz.world/" data-ru>Открыть</a>
       <a class="btn main" href="https://wallet.viz.world/" data-en>Open</a>
+      <a class="btn main" href="https://wallet.viz.world/" data-zh>打开</a>
     </div>
     <div class="card">
       <b>Windows</b>
       <p data-ru>Установщик .msi, 64-бит.</p>
       <p data-en>An .msi installer, 64-bit.</p>
+      <p data-zh>.msi 安装程序，64 位。</p>
       <div class="dl" data-ext="msi"></div>
     </div>
     <div class="card">
       <b>macOS</b>
       <p data-ru>Образ .dmg. Сборка под Apple Silicon (M1 и новее).</p>
       <p data-en>A .dmg image. Built for Apple Silicon (M1 and newer).</p>
+      <p data-zh>.dmg 镜像。为 Apple Silicon（M1 及更新机型）构建。</p>
       <div class="dl" data-ext="dmg"></div>
     </div>
     <div class="card">
       <b>Linux</b>
       <p data-ru>Пакет .deb для Debian/Ubuntu или универсальный AppImage.</p>
       <p data-en>A .deb package for Debian/Ubuntu, or a portable AppImage.</p>
+      <p data-zh>适用于 Debian/Ubuntu 的 .deb 包，或通用 AppImage。</p>
       <div class="dl" data-ext="deb,AppImage"></div>
     </div>
   </div>
@@ -108,46 +130,64 @@
     <a href="https://github.com/VIZ-Blockchain/WebVIZWallet">VIZ-Blockchain/WebVIZWallet</a>.</p>
   <p class="note" data-en>Source code —
     <a href="https://github.com/VIZ-Blockchain/WebVIZWallet">VIZ-Blockchain/WebVIZWallet</a>.</p>
+  <p class="note" data-zh>源代码 —
+    <a href="https://github.com/VIZ-Blockchain/WebVIZWallet">VIZ-Blockchain/WebVIZWallet</a>。</p>
 </section>
 
 <section>
   <h2 data-ru>Предупреждения системы при первом запуске</h2>
   <h2 data-en>OS warnings on first launch</h2>
+  <h2 data-zh>首次启动时的系统警告</h2>
   <p data-ru>Установщики не подписаны платным сертификатом разработчика — это осознанный выбор:
     сертификат привязывает выпуск софта к юрлицу, которое можно принудить отозвать подпись.
     Поэтому система один раз спросит подтверждение:</p>
   <p data-en>The installers are not signed with a paid developer certificate — a deliberate
     choice: a certificate ties software releases to a legal entity that can be forced to revoke
     it. So the OS will ask for confirmation once:</p>
+  <p data-zh>安装程序未使用付费开发者证书签名——这是刻意为之：
+    证书将软件发布绑定到可能被强制撤销签名的法律实体。
+    因此系统会要求确认一次：</p>
   <ul>
     <li data-ru><b>Windows:</b> SmartScreen покажет «Система Windows защитила ваш компьютер» —
       «Подробнее» → «Выполнить в любом случае».</li>
     <li data-en><b>Windows:</b> SmartScreen shows "Windows protected your PC" —
       "More info" → "Run anyway".</li>
+    <li data-zh><b>Windows：</b>SmartScreen 显示"Windows 已保护你的电脑"——
+      "更多信息" → "仍要运行"。</li>
     <li data-ru><b>macOS:</b> Gatekeeper скажет, что разработчик не подтверждён — правый клик по
       приложению → «Открыть» → «Открыть».</li>
     <li data-en><b>macOS:</b> Gatekeeper says the developer can't be verified — right-click the
       app → "Open" → "Open".</li>
+    <li data-zh><b>macOS：</b>Gatekeeper 提示开发者无法验证——右键点击
+      应用 → "打开" → "打开"。</li>
     <li data-ru><b>Linux:</b> AppImage перед запуском сделайте исполняемым:
       <code>chmod +x Forecaster*.AppImage</code>.</li>
     <li data-en><b>Linux:</b> make the AppImage executable before running:
       <code>chmod +x Forecaster*.AppImage</code>.</li>
+    <li data-zh><b>Linux：</b>运行前请赋予 AppImage 执行权限：
+      <code>chmod +x Forecaster*.AppImage</code>。</li>
   </ul>
   <p class="note" data-ru>Проверить, что скачали именно наш файл, можно по контрольной сумме на
     странице выпуска — приложения собираются публично, на серверах GitHub, из открытого кода.</p>
   <p class="note" data-en>You can verify the file against the checksum on the release page — the
     apps are built publicly on GitHub runners from open source.</p>
+  <p class="note" data-zh>您可以通过发布页面上的校验和验证文件——
+    应用在 GitHub 服务器上公开构建，源代码开放。</p>
 </section>
 
 <section>
   <h2 data-ru>Своя нода VIZ — полная независимость</h2>
   <h2 data-en>Your own VIZ node — full independence</h2>
+  <h2 data-zh>自有 VIZ 节点——完全独立</h2>
   <p data-ru>По умолчанию приложения ходят в сеть через публичный узел. Свой узел убирает и этого
     посредника: запросы никуда не уходят, историю ваших ставок никто не видит, а работа клиента
     не зависит от чужого сервера.</p>
   <p data-en>By default the apps reach the network through a public node. Running your own removes
     that intermediary too: nothing leaves your machine, nobody sees your betting history, and the
     client no longer depends on someone else's server.</p>
+  <p data-zh>默认情况下，应用通过公共节点访问网络。运行自己的节点可以消除这个中间环节：
+    请求不会离开本机，没有人能看到您的投注历史，
+    客户端也不再依赖他人的服务器。</p>
   <ol class="steps">
     <li data-ru>Возьмите ноду: для Windows — готовый <code>vizd.exe</code> из
       <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/releases">выпусков viz-cpp-node</a>;
@@ -155,16 +195,24 @@
     <li data-en>Get the node: for Windows a ready-made <code>vizd.exe</code> from the
       <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/releases">viz-cpp-node releases</a>;
       for Linux and macOS the <code>vizblockchain/vizd</code> Docker image.</li>
+    <li data-zh>获取节点：Windows 用户可从
+      <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/releases">viz-cpp-node 发布页</a>
+      下载现成的 <code>vizd.exe</code>；Linux 和 macOS 用户使用 <code>vizblockchain/vizd</code> Docker 镜像。</li>
     <li data-ru>Положите рядом <code>config.ini</code> (ниже) и запустите. Состояние сети
       подтягивается снапшотом с доверенных узлов: это около 4 МБ и несколько секунд вместо
       переигрывания всей истории. Ещё минута — и узел догоняет сеть по блокам.</li>
     <li data-en>Put a <code>config.ini</code> (below) next to it and start. Network state is
       pulled as a snapshot from trusted peers: about 4 MB and a few seconds instead of replaying
       the whole history. A minute later the node has caught up with the chain.</li>
+    <li data-zh>将 <code>config.ini</code>（见下方）放在旁边并启动。网络状态通过
+      可信节点的快照同步：约 4 MB，几秒钟即可完成，无需重放全部历史。
+      一分钟后节点即可追上链。</li>
     <li data-ru>В приложении откройте выбор узла и укажите <code>http://127.0.0.1:8090</code>.
       Индикатор покажет задержку и отставание от сети.</li>
     <li data-en>In the app open the node picker and enter <code>http://127.0.0.1:8090</code>.
       The indicator shows latency and how far the node lags behind the network.</li>
+    <li data-zh>在应用中打开节点选择器，输入 <code>http://127.0.0.1:8090</code>。
+      指示器会显示延迟和节点落后于网络的程度。</li>
   </ol>
   <pre><code>plugin = chain p2p webserver json_rpc database_api network_broadcast_api
 plugin = account_history snapshot
@@ -191,6 +239,10 @@ history-count-blocks = 201600</code></pre>
     disk (201600 blocks at 3 seconds each) — enough for the app, while storage stops growing without
     bound. <code>enable-stalled-sync-detection</code> turns on self-healing: if sync gets stuck, the
     node re-fetches a snapshot from a trusted peer.</p>
+  <p class="note" data-zh>最后两行在磁盘上保留约一周的区块和操作历史
+    （201600 个区块，每块 3 秒）——足够应用使用，存储不会无限增长。
+    <code>enable-stalled-sync-detection</code> 启用自愈：如果同步卡住，
+    节点会从可信节点重新获取快照。</p>
   <p class="note" data-ru>Узлы в примере заданы IP-адресами намеренно: текущая публичная сборка
     ноды не резолвит доменные имена в этих двух настройках и молча остаётся без соседей
     (исправлено в ветке разработки). Список короткий, потому что в нём только узлы, которые
@@ -203,6 +255,11 @@ history-count-blocks = 201600</code></pre>
     incoming connections as of publication (verified); your node discovers the rest by exchanging
     addresses with these two. An up-to-date list of public nodes is in the
     <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">documentation</a>.</p>
+  <p class="note" data-zh>示例中故意使用 IP 地址：当前公开的节点构建
+    在这两项设置中不解析域名，会默默失去所有节点（开发分支已修复）。
+    列表较短，因为只包含发布时确认实际接受传入连接的节点；
+    其余节点通过与这两个节点交换地址自动发现。最新公共节点列表见
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/configuration">文档</a>。</p>
   <p class="note" data-ru><b>Важно:</b> к узлу на <code>127.0.0.1</code> подключается именно
     <i>приложение</i>. Открытый по https сайт до вашего локального узла не достучится — браузеры
     блокируют такие запросы (Local Network Access). Это и есть главная причина, по которой у
@@ -210,6 +267,9 @@ history-count-blocks = 201600</code></pre>
   <p class="note" data-en><b>Note:</b> it is the <i>desktop app</i> that talks to
     <code>127.0.0.1</code>. A site served over https cannot reach your local node — browsers block
     those requests (Local Network Access). That is the main reason Forecaster ships a desktop build.</p>
+  <p class="note" data-zh><b>注意：</b>连接 <code>127.0.0.1</code> 的是<i>桌面应用</i>。
+    通过 https 访问的网站无法到达您的本地节点——浏览器会阻止此类请求
+    （本地网络访问限制）。这正是 Forecaster 提供桌面版的主要原因。</p>
   <p class="note" data-ru>Рынки предсказаний отдаёт отдельный плагин
     <code>prediction_market_api</code>, и в текущей публичной сборке ноды его ещё нет — вписывать
     строку <code>plugin = prediction_market_api</code> в конфиг пока НЕ нужно: узел с неизвестным
@@ -222,12 +282,18 @@ history-count-blocks = 201600</code></pre>
     refuses to start on an unknown plugin. Without it the node answers ordinary calls but returns
     empty market lists, and the app says so on the node screen. Details in the
     <a href="https://viz-blockchain.github.io/viz-cpp-node/node/getting-started">node documentation</a>.</p>
+  <p class="note" data-zh>预测市场由单独的 <code>prediction_market_api</code> 插件提供，
+    当前公开的节点构建尚未包含该插件——目前请勿在配置中添加
+    <code>plugin = prediction_market_api</code>：节点遇到未知插件会拒绝启动。
+    没有该插件，节点可以响应普通请求，但市场列表将为空，
+    应用会在节点选择界面如实提示。详见
+    <a href="https://viz-blockchain.github.io/viz-cpp-node/node/getting-started">节点文档</a>。</p>
 </section>
 
 <footer>
   <p>
-    <a href="./" data-ru>Forecaster — лендинг</a><a href="./" data-en>Forecaster — landing</a> ·
-    <a href="creators.html" data-ru>Создателям рынков</a><a href="creators.html" data-en>For market creators</a> ·
+    <a href="./" data-ru>Forecaster — лендинг</a><a href="./" data-en>Forecaster — landing</a><a href="./" data-zh>Forecaster — 首页</a> ·
+    <a href="creators.html" data-ru>Создателям рынков</a><a href="creators.html" data-en>For market creators</a><a href="creators.html" data-zh>市场创建者</a> ·
     <a href="https://github.com/VIZ-Blockchain/Forecaster-client">GitHub</a>
   </p>
 </footer>

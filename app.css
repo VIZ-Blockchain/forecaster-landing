@@ -214,10 +214,16 @@ footer{padding:34px 0 48px;border-top:1px solid var(--line);color:var(--mut);
   .cta .btn.main::after{animation:none;opacity:0}
 }
 
-html:not(.en) [data-en]{display:none}
-html.en [data-ru]{display:none}
-html.en [data-en]{display:block}
-html.en span[data-en],html.en a[data-en],html.en b[data-en],html.en code[data-en]{display:inline}
-html.en a.btn[data-en]{display:inline-block}
-html.en td[data-en],html.en th[data-en]{display:table-cell}
-html.en li[data-en]{display:list-item}
+[data-lang="ru"] [data-en],[data-lang="ru"] [data-zh],
+[data-lang="en"] [data-ru],[data-lang="en"] [data-zh],
+[data-lang="zh"] [data-ru],[data-lang="zh"] [data-en]{display:none}
+
+[data-lang="en"] [data-en],[data-lang="zh"] [data-zh]{display:block}
+[data-lang="en"] span[data-en],[data-lang="en"] a[data-en],
+[data-lang="en"] b[data-en],[data-lang="en"] code[data-en],
+[data-lang="zh"] span[data-zh],[data-lang="zh"] a[data-zh],
+[data-lang="zh"] b[data-zh],[data-lang="zh"] code[data-zh]{display:inline}
+[data-lang="en"] a.btn[data-en],[data-lang="zh"] a.btn[data-zh]{display:inline-block}
+[data-lang="en"] td[data-en],[data-lang="en"] th[data-en],
+[data-lang="zh"] td[data-zh],[data-lang="zh"] th[data-zh]{display:table-cell}
+[data-lang="en"] li[data-en],[data-lang="zh"] li[data-zh]{display:list-item}

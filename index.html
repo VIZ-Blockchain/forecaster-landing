@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-title-en="Forecaster — prediction markets on VIZ">
+<html lang="en" data-title-en="Forecaster — prediction markets on VIZ" data-title-zh="Forecaster — VIZ 预测市场">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +7,11 @@
 <meta name="description" content="Forecaster — лёгкий non-custodial клиент рынков предсказаний на блокчейне VIZ. Ключи только у вас. Открытый код.">
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="app.css">
-<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l==='en')document.documentElement.className='en';}catch(e){}</script>
+<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l!=='ru')document.documentElement.setAttribute('data-lang',l);}catch(e){}</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
+<div class="lang"><a id="l-ru">RU</a><a id="l-en" class="on">EN</a><a id="l-zh">中文</a></div>
 <div class="wrap">
 
 <header class="center">
@@ -21,67 +21,88 @@
     ключи — только у вас, ставки — прямо в цепь.</p>
   <p class="tag" data-en>Prediction markets on the VIZ blockchain. A lightweight client with no
     middlemen: your keys stay with you, bets go straight on-chain.</p>
+  <p class="tag" data-zh>VIZ 区块链上的预测市场。无中间人的轻量客户端：
+    密钥由您保管，投注直达链上。</p>
   <div class="cta">
     <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
        data-ru>Открыть приложение</a>
     <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
        data-en>Open the app</a>
+    <a class="btn main" href="https://viz-blockchain.github.io/Forecaster-client/"
+       data-zh>打开应用</a>
     <a class="btn ghost" href="download.html" data-ru>Скачать</a>
     <a class="btn ghost" href="download.html" data-en>Download</a>
+    <a class="btn ghost" href="download.html" data-zh>下载</a>
     <a class="btn ghost" href="https://github.com/VIZ-Blockchain/Forecaster-client"
        data-ru>Код — GitHub</a>
     <a class="btn ghost" href="https://github.com/VIZ-Blockchain/Forecaster-client"
        data-en>Source — GitHub</a>
+    <a class="btn ghost" href="https://github.com/VIZ-Blockchain/Forecaster-client"
+       data-zh>源码 — GitHub</a>
   </div>
   <p class="note" data-ru>PWA: открывается в браузере, ставится на телефон как приложение, работает офлайн.</p>
   <p class="note" data-en>PWA: runs in the browser, installs to your phone like an app, works offline.</p>
+  <p class="note" data-zh>PWA：在浏览器中运行，可像应用一样安装到手机，支持离线使用。</p>
 </header>
 
 <section>
   <h2 data-ru>Почему Forecaster</h2>
   <h2 data-en>Why Forecaster</h2>
+  <h2 data-zh>为什么选择 Forecaster</h2>
   <div class="grid">
     <div class="card">
-      <b data-ru>Non-custodial</b><b data-en>Non-custodial</b>
+      <b data-ru>Non-custodial</b><b data-en>Non-custodial</b><b data-zh>非托管</b>
       <p data-ru>Приватные ключи хранятся только в вашем браузере (с шифрованием и биометрией).
         Никто не может заморозить аккаунт или отменить выплату.</p>
       <p data-en>Private keys live only in your browser (with encryption and biometrics).
         Nobody can freeze your account or cancel a payout.</p>
+      <p data-zh>私钥仅保存在您的浏览器中（支持加密和生物识别）。
+        任何人都无法冻结您的账户或取消支付。</p>
     </div>
     <div class="card">
-      <b data-ru>Честная математика пула</b><b data-en>Honest pool math</b>
+      <b data-ru>Честная математика пула</b><b data-en>Honest pool math</b><b data-zh>公正的奖池算法</b>
       <p data-ru>Ставки собираются в общий пул (parimutuel): выигравшие делят пул проигравших.
         Нет маржи букмекера — интерфейс показывает гарантированный минимум выплаты.</p>
       <p data-en>Bets share a common pool (parimutuel): winners split the losers' pool.
         No bookmaker margin — the UI shows your guaranteed minimum payout.</p>
+      <p data-zh>投注汇入公共奖池（parimutuel）：赢家瓜分输家的奖池。
+        没有庄家抽成——界面会显示保证的最低赔付。</p>
     </div>
     <div class="card">
-      <b data-ru>Всё on-chain</b><b data-en>Everything on-chain</b>
+      <b data-ru>Всё on-chain</b><b data-en>Everything on-chain</b><b data-zh>全链上运行</b>
       <p data-ru>Рынки, ставки, резолвы, споры и выплаты — операции блокчейна VIZ.
         Оракулы отвечают страховым депозитом, решения можно оспорить.</p>
       <p data-en>Markets, bets, resolutions, disputes and payouts are VIZ blockchain operations.
         Oracles post an insurance stake and decisions can be disputed.</p>
+      <p data-zh>市场、投注、结算、争议和赔付均为 VIZ 区块链操作。
+        预言机以保险押金担保，裁决可被质疑。</p>
     </div>
     <div class="card">
-      <b data-ru>Открытый код</b><b data-en>Open source</b>
+      <b data-ru>Открытый код</b><b data-en>Open source</b><b data-zh>开源代码</b>
       <p data-ru>Один app.js без сборщиков. Скачайте с GitHub и запустите свою копию —
         клиент работает с любой нодой VIZ.</p>
       <p data-en>A single app.js, no bundlers. Download it from GitHub and run your own copy —
         the client works with any VIZ node.</p>
+      <p data-zh>仅一个 app.js，无需构建工具。从 GitHub 下载并运行您自己的副本——
+        客户端可连接任何 VIZ 节点。</p>
     </div>
     <div class="card">
-      <b data-ru>Ставки без комиссии сети</b><b data-en>No network fees</b>
+      <b data-ru>Ставки без комиссии сети</b><b data-en>No network fees</b><b data-zh>无网络手续费</b>
       <p data-ru>В VIZ нет газа: за отправку ставки не списывают ни копейки. Ограничение —
         не деньги, а личная энергия аккаунта, которая восстанавливается сама.</p>
       <p data-en>VIZ has no gas: placing a bet costs nothing. What limits you is your account's
         own energy, which regenerates by itself — not a fee.</p>
+      <p data-zh>VIZ 没有 Gas 费：投注不花一分钱。限制您的不是费用，
+        而是账户自身能量，它会自动恢复。</p>
     </div>
     <div class="card">
-      <b data-ru>Купон из нескольких ставок</b><b data-en>Multi-bet coupon</b>
+      <b data-ru>Купон из нескольких ставок</b><b data-en>Multi-bet coupon</b><b data-zh>多注联投</b>
       <p data-ru>Соберите несколько исходов и отправьте их одной транзакцией. Она атомарна:
         если хоть одна ставка не проходит, не проходит весь купон — половины не бывает.</p>
       <p data-en>Collect several outcomes and send them in a single transaction. It is atomic:
         if one bet is invalid, the whole coupon is rejected — never half-placed.</p>
+      <p data-zh>选择多个结果，一笔交易全部发送。交易是原子性的：
+        任何一个投注无效，整个联投都会被拒绝——不会出现半成功的情况。</p>
     </div>
   </div>
 </section>
@@ -89,6 +110,7 @@
 <section>
   <h2 data-ru>Без USD-стейблкоинов — осознанно</h2>
   <h2 data-en>No USD stablecoins — by design</h2>
+  <h2 data-zh>不使用美元稳定币——这是刻意的设计</h2>
   <p data-ru>На других площадках ставки идут в USDC/USDT. У любого USD-стейбла есть
     эмитент-компания: она обязана исполнять предписания и умеет замораживать адреса —
     это готовый рычаг, которым можно остановить целую площадку одним списком.
@@ -99,99 +121,117 @@
     stop an entire venue with one blacklist. Forecaster bets are in native VIZ: it has
     no issuer and no freeze button. Exchange to other assets goes through decentralized
     pools (GRAM), with no intermediary.</p>
+  <p data-zh>其他平台使用 USDC/USDT 结算。每种美元稳定币都有一个公司发行方：
+    它必须服从监管指令，能够冻结地址——一个黑名单就能让整个平台停摆。
+    Forecaster 使用原生 VIZ 投注：没有发行方，也没有冻结按钮。
+    兑换其他资产通过去中心化池（GRAM）完成，无需中介。</p>
 </section>
 
 <section>
   <h2 data-ru>Сравнение с другими площадками</h2>
   <h2 data-en>How it compares</h2>
+  <h2 data-zh>与其他平台对比</h2>
   <div class="tbl"><table class="cmp">
     <tr><th></th><th>Forecaster</th><th>Polymarket</th><th>Kalshi</th></tr>
     <tr>
-      <td data-ru>Ключи и средства</td><td data-en>Keys &amp; funds</td>
-      <td class="y" data-ru>всегда у вас, в браузере</td><td class="y" data-en>always yours, in your browser</td>
-      <td data-ru>смарт-кошелёк площадки (Polygon)</td><td data-en>venue smart-wallet (Polygon)</td>
-      <td data-ru>депозит на бирже (фиат)</td><td data-en>exchange deposit (fiat)</td>
+      <td data-ru>Ключи и средства</td><td data-en>Keys &amp; funds</td><td data-zh>密钥与资金</td>
+      <td class="y" data-ru>всегда у вас, в браузере</td><td class="y" data-en>always yours, in your browser</td><td class="y" data-zh>始终在您手中，在浏览器里</td>
+      <td data-ru>смарт-кошелёк площадки (Polygon)</td><td data-en>venue smart-wallet (Polygon)</td><td data-zh>平台智能钱包（Polygon）</td>
+      <td data-ru>депозит на бирже (фиат)</td><td data-en>exchange deposit (fiat)</td><td data-zh>交易所存款（法币）</td>
     </tr>
     <tr>
-      <td data-ru>Валюта ставок</td><td data-en>Bet currency</td>
-      <td class="y" data-ru>нативный VIZ, без эмитента</td><td class="y" data-en>native VIZ, no issuer</td>
-      <td data-ru>USDC (эмитент — Circle)</td><td data-en>USDC (issued by Circle)</td>
-      <td data-ru>USD</td><td data-en>USD</td>
+      <td data-ru>Валюта ставок</td><td data-en>Bet currency</td><td data-zh>投注货币</td>
+      <td class="y" data-ru>нативный VIZ, без эмитента</td><td class="y" data-en>native VIZ, no issuer</td><td class="y" data-zh>原生 VIZ，无发行方</td>
+      <td data-ru>USDC (эмитент — Circle)</td><td data-en>USDC (issued by Circle)</td><td data-zh>USDC（Circle 发行）</td>
+      <td data-ru>USD</td><td data-en>USD</td><td data-zh>USD</td>
     </tr>
     <tr>
-      <td data-ru>Заморозка средств извне</td><td data-en>External freeze risk</td>
-      <td class="y" data-ru>невозможна — эмитента нет</td><td class="y" data-en>impossible — no issuer</td>
-      <td class="n" data-ru>да, на уровне стейбла</td><td class="n" data-en>yes, at the stablecoin level</td>
-      <td class="n" data-ru>да, банк/биржа</td><td class="n" data-en>yes, bank/exchange</td>
+      <td data-ru>Заморозка средств извне</td><td data-en>External freeze risk</td><td data-zh>外部冻结风险</td>
+      <td class="y" data-ru>невозможна — эмитента нет</td><td class="y" data-en>impossible — no issuer</td><td class="y" data-zh>不可能——没有发行方</td>
+      <td class="n" data-ru>да, на уровне стейбла</td><td class="n" data-en>yes, at the stablecoin level</td><td class="n" data-zh>有，在稳定币层面</td>
+      <td class="n" data-ru>да, банк/биржа</td><td class="n" data-en>yes, bank/exchange</td><td class="n" data-zh>有，银行/交易所</td>
     </tr>
     <tr>
-      <td data-ru>KYC и гео-блоки</td><td data-en>KYC &amp; geo-blocks</td>
-      <td class="y" data-ru>нет</td><td class="y" data-en>none</td>
-      <td data-ru>гео-блоки (США закрыты)</td><td data-en>geo-blocked (US closed)</td>
-      <td data-ru>обязательный KYC</td><td data-en>mandatory KYC</td>
+      <td data-ru>KYC и гео-блоки</td><td data-en>KYC &amp; geo-blocks</td><td data-zh>KYC 与地区限制</td>
+      <td class="y" data-ru>нет</td><td class="y" data-en>none</td><td class="y" data-zh>无</td>
+      <td data-ru>гео-блоки (США закрыты)</td><td data-en>geo-blocked (US closed)</td><td data-zh>地区封锁（美国受限）</td>
+      <td data-ru>обязательный KYC</td><td data-en>mandatory KYC</td><td data-zh>强制 KYC</td>
     </tr>
     <tr>
-      <td data-ru>Кто решает исход</td><td data-en>Who resolves</td>
-      <td data-ru>оракул со страховым залогом, споры on-chain</td><td data-en>oracle with insurance stake, on-chain disputes</td>
-      <td data-ru>голосование UMA</td><td data-en>UMA vote</td>
-      <td data-ru>сама биржа</td><td data-en>the exchange itself</td>
+      <td data-ru>Кто решает исход</td><td data-en>Who resolves</td><td data-zh>谁裁定结果</td>
+      <td data-ru>оракул со страховым залогом, споры on-chain</td><td data-en>oracle with insurance stake, on-chain disputes</td><td data-zh>带保险押金的预言机，链上争议</td>
+      <td data-ru>голосование UMA</td><td data-en>UMA vote</td><td data-zh>UMA 投票</td>
+      <td data-ru>сама биржа</td><td data-en>the exchange itself</td><td data-zh>交易所自身</td>
     </tr>
     <tr>
-      <td data-ru>Маржа площадки</td><td data-en>House edge</td>
-      <td class="y" data-ru>0 — общий пул (parimutuel)</td><td class="y" data-en>0 — shared pool (parimutuel)</td>
-      <td data-ru>спред книги заявок</td><td data-en>order-book spread</td>
-      <td data-ru>комиссии + спред</td><td data-en>fees + spread</td>
+      <td data-ru>Маржа площадки</td><td data-en>House edge</td><td data-zh>平台抽成</td>
+      <td class="y" data-ru>0 — общий пул (parimutuel)</td><td class="y" data-en>0 — shared pool (parimutuel)</td><td class="y" data-zh>0——公共奖池（parimutuel）</td>
+      <td data-ru>спред книги заявок</td><td data-en>order-book spread</td><td data-zh>订单簿价差</td>
+      <td data-ru>комиссии + спред</td><td data-en>fees + spread</td><td data-zh>手续费 + 价差</td>
     </tr>
     <tr>
-      <td data-ru>Создать свой рынок</td><td data-en>Create your own market</td>
-      <td class="y" data-ru>может любой</td><td class="y" data-en>anyone can</td>
-      <td data-ru>нет</td><td data-en>no</td>
-      <td data-ru>нет</td><td data-en>no</td>
+      <td data-ru>Создать свой рынок</td><td data-en>Create your own market</td><td data-zh>创建自己的市场</td>
+      <td class="y" data-ru>может любой</td><td class="y" data-en>anyone can</td><td class="y" data-zh>任何人都可以</td>
+      <td data-ru>нет</td><td data-en>no</td><td data-zh>不可以</td>
+      <td data-ru>нет</td><td data-en>no</td><td data-zh>不可以</td>
     </tr>
   </table></div>
   <p class="note" data-ru>Сравнение по публичным правилам площадок на август 2026.</p>
   <p class="note" data-en>Based on each venue's public rules as of August 2026.</p>
+  <p class="note" data-zh>基于各平台 2026 年 8 月的公开规则。</p>
 </section>
 
 <section>
   <h2 data-ru>Как начать</h2>
   <h2 data-en>How to start</h2>
+  <h2 data-zh>如何开始</h2>
   <ol class="steps">
     <li data-ru><a href="https://viz-blockchain.github.io/Forecaster-client/">Откройте приложение</a> —
       регистрация аккаунта VIZ бесплатна и не требует почты и телефона.</li>
     <li data-en><a href="https://viz-blockchain.github.io/Forecaster-client/">Open the app</a> —
       VIZ account registration is free, no e-mail or phone required.</li>
+    <li data-zh><a href="https://viz-blockchain.github.io/Forecaster-client/">打开应用</a>——
+      VIZ 账户注册免费，无需邮箱或手机号。</li>
     <li data-ru>Выберите событие и исход — интерфейс сразу покажет минимальную выплату.</li>
     <li data-en>Pick an event and an outcome — the UI shows the minimum payout upfront.</li>
+    <li data-zh>选择事件和结果——界面会直接显示最低赔付。</li>
     <li data-ru>Ставка уходит в блокчейн; выигрыш начисляется автоматически после резолва.</li>
     <li data-en>The bet goes on-chain; winnings are credited automatically after resolution.</li>
+    <li data-zh>投注上链；结算后奖金自动到账。</li>
   </ol>
 </section>
 
 <section>
   <h2 data-ru>Не только ставки</h2>
   <h2 data-en>More than betting</h2>
+  <h2 data-zh>不仅仅是投注</h2>
   <div class="grid">
     <div class="card">
-      <b data-ru>Пассивный доход</b><b data-en>Passive yield</b>
+      <b data-ru>Пассивный доход</b><b data-en>Passive yield</b><b data-zh>被动收益</b>
       <p data-ru>Ленивый пул ликвидности: внесите VIZ и получайте долю комиссий рынков —
         принципал защищён протоколом.</p>
       <p data-en>Lazy liquidity pool: deposit VIZ and earn a share of market fees —
         the principal is protocol-protected.</p>
+      <p data-zh>惰性流动性池：存入 VIZ 即可获得市场手续费分成——
+        本金受协议保护。</p>
     </div>
     <div class="card">
-      <b data-ru>Свой рынок</b><b data-en>Your own market</b>
+      <b data-ru>Свой рынок</b><b data-en>Your own market</b><b data-zh>创建自己的市场</b>
       <p data-ru>Создайте рынок на любое проверяемое событие и станьте оракулом —
         комиссия создателя и оракула платится протоколом.</p>
       <p data-en>Create a market on any verifiable event and act as its oracle —
         creator and oracle fees are paid by the protocol.</p>
+      <p data-zh>为任何可验证的事件创建市场并成为预言机——
+        创建者和预言机手续费由协议支付。</p>
     </div>
     <div class="card">
-      <b data-ru>Плечо на прогнозы</b><b data-en>Leverage on forecasts</b>
+      <b data-ru>Плечо на прогнозы</b><b data-en>Leverage on forecasts</b><b data-zh>预测杠杆</b>
       <p data-ru>Кредитное плечо на исход — редкость даже среди крупных площадок.
         Заём фронтит пул ликвидности, риски ограничены залогом.</p>
       <p data-en>Leveraged positions on outcomes — rare even among major venues.
         Loans are fronted by the liquidity pool, risk is capped by collateral.</p>
+      <p data-zh>结果杠杆——即使在大型平台中也属罕见。
+        贷款由流动性池提供，风险以抵押品为限。</p>
     </div>
   </div>
 </section>
@@ -199,52 +239,67 @@
 <section>
   <h2 data-ru>Под капотом — наши ноу-хау</h2>
   <h2 data-en>Under the hood — our innovations</h2>
+  <h2 data-zh>核心技术——我们的创新</h2>
   <div class="grid">
     <div class="card">
-      <b data-ru>Оракулы под залогом</b><b data-en>Bonded oracles</b>
+      <b data-ru>Оракулы под залогом</b><b data-en>Bonded oracles</b><b data-zh>押金预言机</b>
       <p data-ru>Оракул вносит страховой депозит и отвечает им: пропустил или испортил
         резолв — протокол срезает залог. Решение можно оспорить on-chain, рейтинг
         надёжности каждого оракула публичен и считается протоколом.</p>
       <p data-en>An oracle posts an insurance stake and answers with it: miss or corrupt a
         resolution and the protocol slashes the stake. Decisions can be disputed on-chain;
         every oracle's reliability score is public and computed by the protocol.</p>
+      <p data-zh>预言机缴纳保险押金并以其担保：遗漏或篡改结算，
+        协议将扣除押金。裁决可在链上质疑，
+        每个预言机的可靠性评分由协议公开计算。</p>
     </div>
     <div class="card">
-      <b data-ru>Скрытые ставки</b><b data-en>Hidden bets</b>
+      <b data-ru>Скрытые ставки</b><b data-en>Hidden bets</b><b data-zh>隐藏投注</b>
       <p data-ru>Commit-reveal: ставка публикуется скрытой и раскрывается позже.
-        Вашу стратегию не скопируют и не отфронтранят.</p>
+        Вашу стратегию не скопируют и не отфронтрантят.</p>
       <p data-en>Commit-reveal: a bet is published hidden and revealed later.
         Your strategy can't be copied or front-run.</p>
+      <p data-zh>Commit-reveal：投注先隐藏发布，稍后揭示。
+        您的策略不会被复制或抢跑。</p>
     </div>
     <div class="card">
-      <b data-ru>Цена не убежит</b><b data-en>Your price can't run away</b>
+      <b data-ru>Цена не убежит</b><b data-en>Your price can't run away</b><b data-zh>价格不会滑走</b>
       <p data-ru>Ваша доля в пуле зависит от того, кто поставил рядом с вами. Поэтому в форме
         есть строка «минимум долей»: если к моменту записи в блок доля окажется меньше
         указанной, ставка просто не исполнится и деньги останутся у вас.</p>
       <p data-en>Your share of the pool depends on who bets alongside you. That is why the form
         has a "minimum shares" field: if by the time the bet lands your share would be smaller
         than that, the bet simply doesn't execute and your money stays with you.</p>
+      <p data-zh>您在奖池中的份额取决于谁与您一起投注。因此表单中
+        有"最低份额"字段：如果投注入账时您的份额低于
+        设定值，投注不会执行，资金原封不动退回。</p>
     </div>
     <div class="card">
-      <b data-ru>Штраф за ставку в последний момент</b><b data-en>Late-bet penalty</b>
+      <b data-ru>Штраф за ставку в последний момент</b><b data-en>Late-bet penalty</b><b data-zh>压哨投注罚款</b>
       <p data-ru>Ставку, сделанную у самого закрытия, протокол урезает в прибыли — и отдаёт
         разницу остальным участникам рынка. Успеть «на готовое» по чужой новости не выйдет.</p>
       <p data-en>A bet placed right before closing has its profit cut by the protocol, and the
         difference goes to the rest of the market. Sniping a resolved-in-advance outcome doesn't pay.</p>
+      <p data-zh>临近截止的投注，协议会削减其利润——
+        差额分配给市场其他参与者。利用提前得知的结果狙击获利行不通。</p>
     </div>
     <div class="card">
-      <b data-ru>Ликвидность без потерь на курсе</b><b data-en>Liquidity without curve losses</b>
+      <b data-ru>Ликвидность без потерь на курсе</b><b data-en>Liquidity without curve losses</b><b data-zh>无曲线损失的流动性</b>
       <p data-ru>Поставщик ликвидности получает свой вклад назад по протоколу целиком, а сверху —
         долю комиссий рынка. Здесь нет непостоянных потерь, знакомых по обменным пулам.</p>
       <p data-en>A liquidity provider gets the full principal back by protocol rule, plus a share
         of market fees on top. None of the impermanent loss familiar from swap pools.</p>
+      <p data-zh>流动性提供者按协议规则获得全额本金返还，
+        另外还有市场手续费分成。没有交换池中常见的无常损失。</p>
     </div>
     <div class="card">
-      <b data-ru>Клиент, который не выключить</b><b data-en>A client you can't switch off</b>
+      <b data-ru>Клиент, который не выключить</b><b data-en>A client you can't switch off</b><b data-zh>无法关闭的客户端</b>
       <p data-ru>PWA без бэкенда: статические файлы + любой узел сети VIZ. Нет сервера,
         отключение которого останавливает сервис; свою копию может поднять каждый.</p>
       <p data-en>A backend-less PWA: static files plus any VIZ node. There is no server
         whose shutdown stops the service; anyone can host their own copy.</p>
+      <p data-zh>无后端的 PWA：静态文件加任意 VIZ 节点。
+        没有关停即停服的服务器；任何人都可以部署自己的副本。</p>
     </div>
   </div>
 </section>
@@ -252,9 +307,10 @@
 <section>
   <h2 data-ru>Почитать</h2>
   <h2 data-en>Read more</h2>
+  <h2 data-zh>延伸阅读</h2>
   <div class="grid">
     <div class="card">
-      <b data-ru>Сеть VIZ</b><b data-en>The VIZ network</b>
+      <b data-ru>Сеть VIZ</b><b data-en>The VIZ network</b><b data-zh>VIZ 网络</b>
       <ul class="links" data-ru>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/ru/">Документация ноды и протокола</a></li>
         <li><a href="https://github.com/VIZ-Blockchain">Исходный код на GitHub</a></li>
@@ -263,9 +319,13 @@
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/">Node and protocol documentation</a></li>
         <li><a href="https://github.com/VIZ-Blockchain">Source code on GitHub</a></li>
       </ul>
+      <ul class="links" data-zh>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/">节点与协议文档</a></li>
+        <li><a href="https://github.com/VIZ-Blockchain">GitHub 源代码</a></li>
+      </ul>
     </div>
     <div class="card">
-      <b data-ru>Протокол Onix (рынки)</b><b data-en>Onix protocol (markets)</b>
+      <b data-ru>Протокол Onix (рынки)</b><b data-en>Onix protocol (markets)</b><b data-zh>Onix 协议（市场）</b>
       <ul class="links" data-ru>
         <li><a href="https://ssrn.com/abstract=6978138">Whitepaper на SSRN</a></li>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/ru/prediction-markets/">Обзор раздела</a></li>
@@ -280,9 +340,16 @@
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/specification">Specification</a></li>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/why-pool-not-odds">Why a pool, not fixed odds</a></li>
       </ul>
+      <ul class="links" data-zh>
+        <li><a href="https://ssrn.com/abstract=6978138">SSRN 白皮书</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/">章节概览</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/whitepaper">协议白皮书</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/specification">规范</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/why-pool-not-odds">为什么是奖池而非固定赔率</a></li>
+      </ul>
     </div>
     <div class="card">
-      <b data-ru>Гайды: роли и возможности</b><b data-en>Guides: roles and features</b>
+      <b data-ru>Гайды: роли и возможности</b><b data-en>Guides: roles and features</b><b data-zh>指南：角色与功能</b>
       <ul class="links" data-ru>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/ru/prediction-markets/guides/bettor">Беттер — как делать ставки</a></li>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/ru/prediction-markets/guides/market-creator">Создатель рынка</a></li>
@@ -299,6 +366,14 @@
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/coupon">Coupon — bets in one transaction</a></li>
         <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/">All guides →</a></li>
       </ul>
+      <ul class="links" data-zh>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/bettor">投注者——如何下注</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/market-creator">市场创建者</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/oracle">预言机——宣布结果</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/passive-lp">被动 LP——惰性池</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/coupon">联投——一笔交易多注投注</a></li>
+        <li><a href="https://viz-blockchain.github.io/viz-cpp-node/prediction-markets/guides/">所有指南 →</a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -307,13 +382,15 @@
   <p>
     <a href="https://github.com/VIZ-Blockchain/Forecaster-client">GitHub</a> ·
     <a href="https://viz-blockchain.github.io/Forecaster-client/">Forecaster</a> ·
-    <a href="creators.html" data-ru>Создателям рынков</a><a href="creators.html" data-en>For market creators</a> ·
-    <a href="download.html" data-ru>Скачать</a><a href="download.html" data-en>Download</a>
+    <a href="creators.html" data-ru>Создателям рынков</a><a href="creators.html" data-en>For market creators</a><a href="creators.html" data-zh>市场创建者</a> ·
+    <a href="download.html" data-ru>Скачать</a><a href="download.html" data-en>Download</a><a href="download.html" data-zh>下载</a>
   </p>
   <p data-ru>Forecaster — свободный софт. Не является букмекером: ставки исполняет
     децентрализованная сеть VIZ.</p>
   <p data-en>Forecaster is free software. Not a bookmaker: bets are executed by the
     decentralized VIZ network.</p>
+  <p data-zh>Forecaster 是自由软件。不是博彩公司：投注由去中心化的
+    VIZ 网络执行。</p>
 </footer>
 
 </div>

@@ -5,18 +5,24 @@
 (function(){
   var h=document.documentElement,
       ru=document.getElementById('l-ru'),
-      en=document.getElementById('l-en');
-  if (!ru || !en) return;
-  var titles={ru:document.title, en:h.getAttribute('data-title-en')||document.title};
+      en=document.getElementById('l-en'),
+      zh=document.getElementById('l-zh');
+  if (!ru || !en || !zh) return;
+  var titles={
+    ru:document.title,
+    en:h.getAttribute('data-title-en')||document.title,
+    zh:h.getAttribute('data-title-zh')||document.title
+  };
+  var btns={ru:ru,en:en,zh:zh};
   function set(l){
-    h.className=l==='en'?'en':'';
-    ru.className=l==='en'?'':'on';
-    en.className=l==='en'?'on':'';
-    document.title=l==='en'?titles.en:titles.ru;
+    h.setAttribute('data-lang',l);
+    for (var k in btns) btns[k].className=k===l?'on':'';
+    document.title=titles[l]||titles.en;
     try{ localStorage.setItem('fw_lang',l); }catch(e){}
   }
   ru.onclick=function(){ set('ru'); };
   en.onclick=function(){ set('en'); };
+  zh.onclick=function(){ set('zh'); };
   var saved=null; try{ saved=localStorage.getItem('fw_lang'); }catch(e){}
   set(saved || 'en');
 })();
@@ -91,15 +97,16 @@
 
   // Двуязычная надпись — теми же атрибутами, что и вся страница, иначе сгенерированный
   // текст не переключался бы по клику RU/EN.
-  function bi(node, ru, en){
+  function bi(node, ru, en, zh){
     var r=document.createElement('span'); r.setAttribute('data-ru',''); r.textContent=ru;
     var e=document.createElement('span'); e.setAttribute('data-en',''); e.textContent=en;
-    node.appendChild(r); node.appendChild(e); return node;
+    var z=document.createElement('span'); z.setAttribute('data-zh',''); z.textContent=zh;
+    node.appendChild(r); node.appendChild(e); node.appendChild(z); return node;
   }
   function fallback(box, repo){
     var a=document.createElement('a');
     a.className='btn ghost'; a.href='https://github.com/VIZ-Blockchain/'+repo+'/releases';
-    box.appendChild(bi(a,'Выпуски на GitHub','Releases on GitHub'));
+    box.appendChild(bi(a,'Выпуски на GitHub','Releases on GitHub','GitHub 发布'));
   }
   function fill(repo, rootId){
     var root=document.getElementById(rootId);
@@ -146,7 +153,8 @@
           n.className='note';
           var pre=rel.prerelease?' — предварительная сборка':'';
           var preEn=rel.prerelease?' — pre-release':'';
-          bi(n,'Текущий выпуск: '+rel.tag_name+pre,'Current release: '+rel.tag_name+preEn);
+          var preZh=rel.prerelease?' — 预发布版':'';
+          bi(n,'Текущий выпуск: '+rel.tag_name+pre,'Current release: '+rel.tag_name+preEn,'当前版本: '+rel.tag_name+preZh);
           root.parentNode.insertBefore(n, root.nextSibling);
         }
       })

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-title-en="Forecaster — for market creators">
+<html lang="en" data-title-en="Forecaster — for market creators" data-title-zh="Forecaster — 市场创建者指南">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,26 +7,30 @@
 <meta name="description" content="Как Forecaster собирает рынки в карточки событий: ключи метаданных event, event_title, child; родительский рынок и дочерние линии; что индексирует нода VIZ.">
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="app.css">
-<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l==='en')document.documentElement.className='en';}catch(e){}</script>
+<script>try{var l=localStorage.getItem('fw_lang')||'en';if(l!=='ru')document.documentElement.setAttribute('data-lang',l);}catch(e){}</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<div class="lang"><a id="l-ru" class="on">RU</a><a id="l-en">EN</a></div>
+<div class="lang"><a id="l-ru">RU</a><a id="l-en" class="on">EN</a><a id="l-zh">中文</a></div>
 <div class="wrap">
 
 <header>
-  <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a></p>
+  <p class="back"><a href="./" data-ru>← Forecaster</a><a href="./" data-en>← Forecaster</a><a href="./" data-zh>← Forecaster</a></p>
   <h1 class="small" data-ru>События и метаданные: рынки, которые собираются в матчи</h1>
   <h1 class="small" data-en>Events &amp; metadata: markets that group into matches</h1>
+  <h1 class="small" data-zh>事件与元数据：将市场组合成赛事</h1>
   <p class="tag" data-ru>Гайд для создателей рынков: как проставить метаданные, чтобы Forecaster
     показал ваши рынки одной карточкой события — с исходами, коэффициентами и «ещё N линий».</p>
   <p class="tag" data-en>A market-creator guide: set the right metadata and Forecaster renders your
     markets as one event card — outcomes, odds and a "+N more lines" drill-down.</p>
+  <p class="tag" data-zh>市场创建者指南：设置正确的元数据，Forecaster 就会将您的市场
+    渲染为一张赛事卡片——包含结果、赔率和"+N 条更多盘口"的下钻。</p>
 </header>
 
 <section>
   <h2 data-ru>Как это работает</h2>
   <h2 data-en>How it works</h2>
+  <h2 data-zh>工作原理</h2>
   <p data-ru>Один матч — это несколько независимых on-chain рынков: «кто победит», «тотал», «первый
     Рошан». Специальных «родительских» объектов в протоколе нет — группировку задаёт создатель
     через поле <code>metadata</code> (JSON-строка в операции <code>pm_create_market</code>). Нода
@@ -35,8 +39,12 @@
     Roshan". The protocol has no special "parent" objects — the creator defines grouping via the
     <code>metadata</code> field (a JSON string in <code>pm_create_market</code>). The node indexes
     a whitelist of keys; the client reads ready-made indexes.</p>
+  <p data-zh>一场比赛由多个独立的链上市场组成："谁获胜"、"总分"、"第一个罗shan"。
+    协议没有特殊的"父级"对象——创建者通过 <code>metadata</code> 字段
+    （<code>pm_create_market</code> 操作中的 JSON 字符串）定义分组。
+    节点索引白名单中的键；客户端读取现成的索引。</p>
   <div class="card">
-    <b data-ru>Три ключа склейки</b><b data-en>Three grouping keys</b>
+    <b data-ru>Три ключа склейки</b><b data-en>Three grouping keys</b><b data-zh>三个分组键</b>
     <p data-ru><code>event</code> — общий slug матча у всех его рынков (ключ склейки);
       <code>event_title</code> — человекочитаемое имя события на карточках;
       <code>child: 1</code> — дочерняя линия (проп): скрыта из общих лент, видна на странице события.
@@ -45,12 +53,17 @@
       <code>event_title</code> — the human-readable event name on cards;
       <code>child: 1</code> — a child line (prop): hidden from general feeds, visible on the event
       page. The market WITHOUT child is the parent (the face of the card).</p>
+    <p data-zh><code>event</code> — 比赛所有市场共用的 slug（连接键）；
+      <code>event_title</code> — 卡片上可读的事件名称；
+      <code>child: 1</code> — 子盘口（prop）：在常规信息流中隐藏，在赛事页面上可见。
+      没有 child 的市场是父级（卡片的正面）。</p>
   </div>
 </section>
 
 <section>
   <h2 data-ru>Пример: три рынка одного матча</h2>
   <h2 data-en>Example: three markets of one match</h2>
+  <h2 data-zh>示例：一场比赛的三个市场</h2>
 <pre><code>// Родитель (винлайн) — БЕЗ child          // Parent (moneyline) — NO child
 {"title":"MOUZ победит Vici Gaming?",
  "category":"esports","tags":["dota-2"],
@@ -71,55 +84,71 @@
     case and dashes matter, pick the key before creating markets); the moneyline without
     <code>child</code>; every other line gets <code>child: 1</code>. A parent title containing
     "winner" / "moneyline" helps the client pick it as the card face.</p>
+  <p data-zh>规则：比赛每条盘口使用相同的 <code>event</code>（精确字符串匹配——
+    大小写和连字符很重要，请在创建前确定键）；胜负盘不加 <code>child</code>；
+    其他盘口加 <code>child: 1</code>。父级标题包含 "winner" / "moneyline"
+    有助于客户端将其选为卡片正面。</p>
 </section>
 
 <section>
   <h2 data-ru>Ключи, которые индексирует нода</h2>
   <h2 data-en>Keys the node indexes</h2>
+  <h2 data-zh>节点索引的键</h2>
   <div class="tbl"><table class="cmp">
-    <tr><th data-ru>Ключ</th><th data-en>Key</th><th data-ru>Зачем</th><th data-en>Purpose</th></tr>
-    <tr><td><code>title</code></td><td data-ru>Вопрос рынка на карточке.</td><td data-en>The market question on the card.</td></tr>
-    <tr><td><code>category</code>, <code>tags</code></td><td data-ru>Разделы и фильтры листингов (теги — массивом).</td><td data-en>Listing sections and filters (tags as an array).</td></tr>
-    <tr><td><code>image</code></td><td data-ru>Обложка (URL, не хостится on-chain).</td><td data-en>Cover (URL, not hosted on-chain).</td></tr>
-    <tr><td><code>description</code></td><td data-ru>Краткие правила резолва.</td><td data-en>Short resolution rules.</td></tr>
-    <tr><td><code>event</code>, <code>event_title</code></td><td data-ru>Ключ и имя события (склейка).</td><td data-en>Event key and name (grouping).</td></tr>
-    <tr><td><code>child</code></td><td data-ru>1 = дочерняя линия, скрыта из лент.</td><td data-en>1 = child line, hidden from feeds.</td></tr>
-    <tr><td><code>banned_jurisdictions</code></td><td data-ru>Юрисдикционный фильтр клиентов.</td><td data-en>Jurisdiction filter for clients.</td></tr>
+    <tr><th data-ru>Ключ</th><th data-en>Key</th><th data-zh>键</th><th data-ru>Зачем</th><th data-en>Purpose</th><th data-zh>用途</th></tr>
+    <tr><td><code>title</code></td><td data-ru>Вопрос рынка на карточке.</td><td data-en>The market question on the card.</td><td data-zh>卡片上的市场问题。</td></tr>
+    <tr><td><code>category</code>, <code>tags</code></td><td data-ru>Разделы и фильтры листингов (теги — массивом).</td><td data-en>Listing sections and filters (tags as an array).</td><td data-zh>列表分区和筛选（标签为数组）。</td></tr>
+    <tr><td><code>image</code></td><td data-ru>Обложка (URL, не хостится on-chain).</td><td data-en>Cover (URL, not hosted on-chain).</td><td data-zh>封面（URL，不在链上托管）。</td></tr>
+    <tr><td><code>description</code></td><td data-ru>Краткие правила резолва.</td><td data-en>Short resolution rules.</td><td data-zh>简要结算规则。</td></tr>
+    <tr><td><code>event</code>, <code>event_title</code></td><td data-ru>Ключ и имя события (склейка).</td><td data-en>Event key and name (grouping).</td><td data-zh>事件键和名称（分组）。</td></tr>
+    <tr><td><code>child</code></td><td data-ru>1 = дочерняя линия, скрыта из лент.</td><td data-en>1 = child line, hidden from feeds.</td><td data-zh>1 = 子盘口，在信息流中隐藏。</td></tr>
+    <tr><td><code>banned_jurisdictions</code></td><td data-ru>Юрисдикционный фильтр клиентов.</td><td data-en>Jurisdiction filter for clients.</td><td data-zh>客户端的地区过滤器。</td></tr>
   </table></div>
   <p class="mut" data-ru>Остальные ключи JSON не индексируются, но остаются в сыром metadata —
     свои клиенты могут читать их напрямую.</p>
   <p class="mut" data-en>Other JSON keys are not indexed but stay in the raw metadata — custom
     clients can read them directly.</p>
+  <p class="mut" data-zh>其他 JSON 键不会被索引，但保留在原始 metadata 中——
+    自定义客户端可以直接读取它们。</p>
 </section>
 
 <section>
   <h2 data-ru>Что получается в Forecaster</h2>
   <h2 data-en>What Forecaster renders</h2>
+  <h2 data-zh>Forecaster 中的呈现效果</h2>
   <ul>
     <li data-ru><b>Таб «События»</b>: рынки группируются по <code>event</code>; карточка = винлайн
       с кнопками исходов (тап — в купон) и «ещё N линий».</li>
     <li data-en><b>Events tab</b>: markets group by <code>event</code>; a card = the moneyline with
       tappable outcome buttons (tap adds to the coupon) and "+N more lines".</li>
+    <li data-zh><b>「赛事」标签</b>：市场按 <code>event</code> 分组；卡片 = 胜负盘，
+      带有可点击的结果按钮（点击加入联投）和"还有 N 条盘口"。</li>
     <li data-ru><b>Страница события</b> <code>#/event/&lt;ключ&gt;</code>: все линии матча одним
       списком (API <code>list_markets_by_event</code>).</li>
     <li data-en><b>Event page</b> <code>#/event/&lt;key&gt;</code>: every line of the match in one
       list (the <code>list_markets_by_event</code> API).</li>
+    <li data-zh><b>赛事页面</b> <code>#/event/&lt;键&gt;</code>：比赛的所有盘口
+      以一个列表展示（<code>list_markets_by_event</code> API）。</li>
     <li data-ru><b>Общие ленты</b> по категории/тегу показывают только родителей — пропы не шумят
       (нода прячет <code>child</code> по умолчанию).</li>
     <li data-en><b>General feeds</b> by category/tag show parents only — props don't spam the feed
       (the node hides <code>child</code> by default).</li>
+    <li data-zh><b>常规信息流</b>按分类/标签只显示父级——子盘口不会干扰信息流
+      （节点默认隐藏 <code>child</code>）。</li>
   </ul>
   <p data-ru>Полная версия гайда — в документации ноды:
     <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/guides/events-metadata.md">события и метаданные</a>.</p>
   <p data-en>The full guide lives in the node documentation:
     <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/guides/events-metadata.md">events &amp; metadata</a>.</p>
+  <p data-zh>完整指南见节点文档：
+    <a href="https://github.com/VIZ-Blockchain/viz-cpp-node/blob/pm/docs/prediction-markets/guides/events-metadata.md">事件与元数据</a>。</p>
 </section>
 
 <footer>
   <p>
-    <a href="./" data-ru>Forecaster — лендинг</a><a href="./" data-en>Forecaster — landing</a> ·
+    <a href="./" data-ru>Forecaster — лендинг</a><a href="./" data-en>Forecaster — landing</a><a href="./" data-zh>Forecaster — 首页</a> ·
     <a href="https://viz-blockchain.github.io/Forecaster-client/">Forecaster App</a> ·
-    <a href="download.html" data-ru>Скачать</a><a href="download.html" data-en>Download</a> ·
+    <a href="download.html" data-ru>Скачать</a><a href="download.html" data-en>Download</a><a href="download.html" data-zh>下载</a> ·
     <a href="https://github.com/VIZ-Blockchain/Forecaster-client">GitHub</a>
   </p>
 </footer>
