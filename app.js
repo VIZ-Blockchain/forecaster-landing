@@ -18,7 +18,7 @@
   ru.onclick=function(){ set('ru'); };
   en.onclick=function(){ set('en'); };
   var saved=null; try{ saved=localStorage.getItem('fw_lang'); }catch(e){}
-  set(saved || (navigator.language && navigator.language.slice(0,2)==='ru' ? 'ru' : 'en'));
+  set(saved || 'en');
 })();
 
 /* ---------- подсветка карточки за курсором ----------
